@@ -1,16 +1,12 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from django.http import Http404, HttpResponseRedirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
-
-# Create your views here.
-from django.urls import reverse
 
 from portfolio.forms import UserRegistrationForm
-from portfolio.models.base import UserProfile
+from django.contrib.auth import authenticate, login, logout
+
+
+# Create your views here.
 
 
 def register(request):
@@ -20,10 +16,34 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, "Account successfully created for " + user)
+            return redirect('login')
+    context = {'form': form}
+    return render(request, 'signup.html', context)
+
+
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
             return redirect('home')
-    context={'form':form}
-    return render(request,'signup.html',context)
+        else:
+            messages.info(request, "Invalid Credentials")
+
+    context = {}
+    return render(request, 'login.html', context)
 
 
-def test(request):
+def logoutUser(request):
+    logout(request)
+    return redirect('login')
+
+@login_required(login_url='login')
+def home(request):
     return render(request, 'index.html')
