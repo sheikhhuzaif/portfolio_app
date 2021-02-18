@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from portfolio.models.base import UserProfile
+
+admin.site.register(UserProfile)
