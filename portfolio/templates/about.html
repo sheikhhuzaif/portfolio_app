@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-md" align="center">
+    <p>Welcome to this Portfolio Creation and management website</p>
+    <a href="{% url 'login'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Login</a>
+    <a href="{% url 'register'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Sign Up</a>
+</div>
+
+{% endblock %}

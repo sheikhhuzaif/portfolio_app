@@ -12,6 +12,8 @@
     <span>Hello, {{request.user}}</span>
     <br>
     <span><a href="{% url 'logout' %}">Logout</a></span>
+    <br>
+    <a href="{% url 'edit'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Edit</a>
 
 </body>
 </html>

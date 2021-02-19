@@ -1,3 +1,7 @@
 /db.sqlite3
 /venv/
+/.idea/
+/portfolio/__pycache__/
+/portfolios/__pycache__/
+
 
