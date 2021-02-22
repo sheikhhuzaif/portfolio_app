@@ -63,7 +63,8 @@ def home(request):
 
 @login_required(login_url='login')
 def edit(request):
-    return render(request, 'edit.html')
+    print(request.POST)
+    return render(request, 'edit.html',{'range':range(1)})
 
 
 def about(request):

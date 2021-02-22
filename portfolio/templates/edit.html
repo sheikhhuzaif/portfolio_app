@@ -1,6 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>This is the edit page</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    <form>
+  <div class="mb-3">
+    <label for="username" class="form-label">USERNAME</label>
+    <input type="text" class="form-control" name="username" id="username" aria-describedby="usernameHelp">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" id="password">
+  </div>
+        <div class="mb-3">
+            {% for x in range %}
+            <form action="">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Test</label>
+                    <input type="text" class="form-control" name="text" id="name">
+                    <button type="add more"onclick="{ 'x':1 }" class="btn btn-primary">Add New</button>
+                    <button type="done" onclick="{ 'x':5 }" class="btn btn-primary">Done</button>
+                </div>
+
+            </form>
+            {% endfor %}
+        </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    {% if form.errors %}
+      {{form.errors}}
+      {% endif %}
+</form>
 
 {% endblock %}

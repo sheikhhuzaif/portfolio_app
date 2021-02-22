@@ -4,7 +4,6 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 
-from portfolio.models.base import UserProfile
 
 
 class UserRegistrationForm(UserCreationForm):
