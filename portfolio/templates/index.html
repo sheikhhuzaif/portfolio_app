@@ -14,6 +14,12 @@
     <span><a href="{% url 'logout' %}">Logout</a></span>
     <br>
     <a href="{% url 'edit'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Edit</a>
+    <a href="{% url 'settings'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Settings</a>
+    <a href="/view/{{request.user}}/" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">View</a>
+    <br>
+      {% for message in messages%}
+      <p>{{message}}</p>
+      {% endfor %}
 
 </body>
 </html>
