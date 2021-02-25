@@ -26,6 +26,9 @@
       <br>
     <p>Already have an account, <a href="{% url 'login'%}">Login</a></p>
     <br>
+      {% for message in messages %}
+      <p>{{message}}</p>
+      {% endfor %}
     {% if form.errors %}
       <script >alert({{form.errors}})</script>
       {% endif %}

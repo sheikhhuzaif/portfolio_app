@@ -22,7 +22,7 @@ def register(request):
             username = request.POST.get('username')
             email = request.POST.get('email')
             password = request.POST.get('password1')
-            if User.objects.filter(username=username).first() is None:
+            if (User.objects.filter(username=username).first() or User.objects.filter(email=email).first())is None:
                 user = User(username=username, email=email)
                 user.set_password(raw_password=password)
                 user.save()
