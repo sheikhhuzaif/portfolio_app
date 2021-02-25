@@ -1,13 +1,6 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
-from django.http import HttpResponseNotFound
-from django.shortcuts import render, redirect
-
-from portfolio.forms import UserRegistrationForm
 from django.contrib.auth import authenticate, login, logout
-
-# Create your views here.
 from portfolio.mail import send_joining_mail
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
@@ -94,23 +87,28 @@ def about(request):
 
 @login_required(login_url='login')
 def settings(request):
-    if request.method=='POST':
+    return render(request, 'settings.html')
+
+
+@login_required(login_url='login')
+def password_change(request):
+    if request.method == 'POST':
         if request.user.is_authenticated:
-            old=request.POST.get('old')
-            new=request.POST.get('new')
-            username=request.user
-            user=authenticate(request,username=username,password=old)
+            old = request.POST.get('old')
+            new = request.POST.get('new')
+            username = request.user
+            user = authenticate(request, username=username, password=old)
             if user is not None:
                 user.set_password(new)
                 user.save()
-                user=authenticate(request,username=username,password=new)
-                login(request,user)
-                messages.info(request,'password change succesfully')
+                user = authenticate(request, username=username, password=new)
+                login(request, user)
+                messages.info(request, 'password change succesfully')
                 return redirect('home')
             else:
-                messages.info(request,'old password is wrong')
+                messages.info(request, 'old password is wrong')
 
-    return render(request,'settings.html')
+    return render(request, 'password_settings.html')
 
 
 def password_reset_request(request):
@@ -126,7 +124,7 @@ def password_reset_request(request):
                     context = {
                         "email": user.email,
                         'domain': '127.0.0.1:8000',
-                        'site_name': 'Website',
+                        'site_name': 'PortFolios',
                         "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                         "user": user,
                         'token': default_token_generator.make_token(user),
@@ -139,5 +137,4 @@ def password_reset_request(request):
                         return HttpResponse('Invalid header found.')
                     return redirect("/password_reset/done/")
     password_reset_form = PasswordResetForm()
-    return render(request=request, template_name="password_reset.html",
-                  context={"password_reset_form": password_reset_form})
+    return render(request, "password_reset.html", {"password_reset_form": password_reset_form})

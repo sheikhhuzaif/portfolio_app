@@ -25,5 +25,6 @@ urlpatterns = [
          name='password_reset_complete'),
     path('view/<str:username>/', views.display, name='view'),
     path("password_reset", views.password_reset_request, name="password_reset"),
-    path('settings/',views.settings,name='settings')
+    path('settings/',views.settings,name='settings'),
+    path('password/',views.password_change,name='password')
 ]

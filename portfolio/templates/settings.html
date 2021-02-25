@@ -1,26 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="POST" action="">
-    {% csrf_token %}
-    <form>
-  <div class="mb-3">
-    <label for="old" class="form-label">Old Password</label>
-    <input type="password" class="form-control" name="old" id="old">
-  </div>
-  <div class="mb-3">
-    <label for="new" class="form-label">New Password</label>
-    <input type="password" class="form-control" name="new" id="new">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-    <br>
-      {% for message in messages%}
-      <p>{{message}}</p>
-      {% endfor %}
-    {% if form.errors %}
-      {{form.errors}}
-      {% endif %}
-  </form>
+  <h1>Settings</h1>
+  <a href="{% url 'password'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Change Password</a>
 {% endblock %}
