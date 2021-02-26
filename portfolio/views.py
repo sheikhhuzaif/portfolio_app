@@ -28,7 +28,9 @@ def register(request):
                 user.save()
                 send_joining_mail(email, username)
                 messages.success(request, "Account successfully created for " + username)
-                return redirect('login')
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect('home')
             else:
                 messages.error(request, "Account already exists")
         context = {}
