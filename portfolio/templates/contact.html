@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Signin</title>
+    <title>Contatc Us</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
     {% load static %}
@@ -29,26 +29,25 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="{% static 'additionalcss/login.css' %}" rel="stylesheet">
+    <link href="{% static 'additionalcss/contact.css' %}" rel="stylesheet">
   </head>
   <body class="text-center" style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
     
-<main class="form-signin">
+<main class="form-contact">
   <form method="POST">
     {% csrf_token %}
     <img class="mb-4" src="{% static 'images/logo.png' %}" alt="" width="100" height="100">
-    <h1 class="h3 mb-3 fw-normal">Sign In</h1>
-    <label for="username" class="visually-hidden">Email address</label>
-    <input type="text" id="username" name='username' class="form-control" placeholder="Email address" required autofocus>
-    <label for="password" class="visually-hidden">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    <label for=""></label>
-    <p>Don't have an account <a href="{% url 'register' %}">SignUp</a></p>
-    <p>Forgot your password. <a href="{% url 'password_reset' %}">Reset</a></p>
-    <p class="align-center">OR</p>
-    <a href="{% provider_login_url 'google' %}" class="w-100 btn btn-lg btn-primary" tabindex="-1" role="button" aria-disabled="true">Login with Google</a>
-
+    <h1 class="h3 mb-3 fw-normal">Get in touch</h1>
+    <label for="name" class="visually-hidden">Name</label>
+    <input type="text" id="name" name='name' class="form-control" placeholder="Name" required autofocus>
+    <br>
+    <label for="email" class="visually-hidden">Email</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+    <br>
+    <label for="message" class="visually-hidden">Name</label>
+    <textarea class="form-control" id="message" name="message" rows="3" placeholder="Your Message"></textarea>
+    <br>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Send Message</button>
   </form>
 </main>
 

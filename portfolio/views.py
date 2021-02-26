@@ -12,7 +12,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-
+from portfolios.settings import EMAIL_HOST_USER
 
 def register(request):
     if request.user.is_authenticated:
@@ -138,3 +138,18 @@ def password_reset_request(request):
                     return redirect("/password_reset/done/")
     password_reset_form = PasswordResetForm()
     return render(request, "password_reset.html", {"password_reset_form": password_reset_form})
+
+
+def contact(request):
+    if request.method=='POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        message=request.POST.get('message')
+        subject="Message from "+name+"("+email+")"
+        
+        if send_mail(subject,message,EMAIL_HOST_USER,['sheikhhuzaif007@gmail.com']):
+            return render(request,'contactsuccess.html')
+        else:
+            return render(request,'contactfail.html')
+
+    return render(request,'contact.html')
