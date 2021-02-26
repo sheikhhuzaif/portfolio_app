@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
-from portfolio.models.utils import GENDER_CHOICES, SOCIAL_CHOICES
+from .utils import GENDER_CHOICES, SOCIAL_CHOICES
 
 
 class UserInfo(models.Model):
