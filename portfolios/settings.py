@@ -128,7 +128,7 @@ AUTHENTICATION_BACKENDS = (
  'allauth.account.auth_backends.AuthenticationBackend',
  )
 
-SITE_ID = 2
+SITE_ID = 3
 LOGIN_REDIRECT_URL = 'home'
 
 
@@ -151,3 +151,4 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'huzaif.pal@gmail.com'
 EMAIL_HOST_PASSWORD = 'lrpuizqxaonbxipo'
+#omen ghoda
