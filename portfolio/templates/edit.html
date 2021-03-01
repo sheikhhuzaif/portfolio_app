@@ -8,27 +8,28 @@
     {% load static %}
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'additionalcss/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'additionalcss/about.css' %}">
     <script src="{% static 'additionaljs/edit.js' %}"></script>
 
 </head>
 
-<body>
-    <header class="container group">
+<body class="d-flex text-left text-white" style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
+   
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="mb-auto">
+    <div>
+      <!-- <h3 class="float-md-start mb-0">PRTFOLIOs</h3> -->
+      <nav class="nav nav-masthead justify-content-center float-md">
+        <a class="nav-link active" href="#PD">Personal Details</a>
+        <a class="nav-link" href="#qual">Qualifications</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#exp">Work Experience</a>
+        <a class="nav-link" href="#social">Social</a>
+      </nav>
+    </div>
+  </header>  
 
-  
-        <nav class="navigation">
-          <ul>
-            <li><a href="#PD">Personal Details</a></li>
-            <li><a href="#qual">Qualifications</a></li>
-            <li><a href="#skills">SKills</a></li>
-            <li><a href="#exp">Work Experience</a></li>
-          </ul>
-        </nav>
-  
-      </header>
-      <br><br><br><br>
-    <form id="regForm" action="" method="POST">
+    <form  class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="regForm" action="" method="POST">
       {% csrf_token %}
         <section id="PD">
             <h1>Personal Details:</h1>
@@ -62,7 +63,7 @@
         <section id="qual">
             <h1>Qualifications</h1>
 
-            <input type="button" value="Add Row" class="tableButton" id="addrow" onclick="addRowQual()">
+            <input type="button" class="btn btn-outline-primary btn-sm" value="Add Row" id="addrow" onclick="addRowQual()">
             <div id="qualcontent">
             </div>
              
@@ -75,7 +76,7 @@
             <!-- <h3><label for="skillname">Skill Name:</label></h3>
             <p><input type="text" name="skillname" placeholder="Skill name..." ></p> -->
 
-            <input type="button" value="Add Skill" onclick="addRowSkill()">
+            <input type="button" class="btn btn-outline-primary btn-sm" value="Add Skill" onclick="addRowSkill()">
             <div id="skillcontent">
             </div>
         </section>
@@ -94,14 +95,14 @@
             <p><input type="date" name="enddate"></p>
 
             <input type="checkbox" > Are you currently working here 
-
-
         </section>
-        <br><br><br><br>
 
-        <section id="qual">
+        <br><br>
+
+        <section id="social">
             <h1>Link your Social Accounts</h1>
-            <input type="button" value="Add Row" class="tableButton" id="addrowSocial" onclick="addRowSocial()">
+            <input type="button" class="btn btn-outline-primary btn-sm" value="Add Row" id="addrowSocial" onclick="addRowSocial()">
+
             <div id="socialcontent">
             </div>
         </section>
@@ -110,5 +111,6 @@
         <button name="next">Next</button> 
 
         </form>
+  </div>
 </body>
 </html>
