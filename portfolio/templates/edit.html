@@ -32,20 +32,46 @@
     <form  class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="regForm" action="" method="POST">
       {% csrf_token %}
         <section id="PD">
-            <h1>Personal Details:</h1>
-            
-            <h3><label for="Fname">Name:</label></h3>
-            <p><input type="text" name="Fname" placeholder="First name..." ></p>
-            <label for="Lname">Name:</label> 
-            <p><input type="text" name="Lname" placeholder="Last name..." ></p>
+            <h1>Personal Details</h1>
+            <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name">
+                    <label style="color: #000;" for="Fname">First Name</label>
+                </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="Lname" class="form-control" id="Lname" placeholder="Last Name">
+                    <label style="color: #000;" for="Lname">Last Name</label>
+                  </div>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone">
+              <label style="color: #000;" for="phone">Phone Number</label>
+            </div>
 
-            <h3><label for="phone">Phone No.:</label></h3>
-            <p><input type="tel" id="phone" placeholder="Phone..." ></p>
-        
-            <h3><label for="gender">Gender:</label></h3>
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female
-            <input type="radio" name="gender" value="other">Other
+            <h3>Gender</h3>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="" value="Male">
+              <label class="form-check-label" for="gender">
+                Male
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+              <label class="form-check-label" for="gender">
+                Female
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gender" id="gender" value="Other">
+              <label class="form-check-label" for="exampleRadios3">
+                Other
+              </label>
+            </div>
+            <br>
         
             <h3><label for="address">Address:</label></h3>
             <p><textarea rows="5" cols="60" name="address" placeholder="Address">
@@ -106,9 +132,9 @@
             <div id="socialcontent">
             </div>
         </section>
+        <br>
 
-        <button name="prev">Previous</button> 
-        <button name="next">Next</button> 
+        <input type="button" class="btn btn-primary" onclick="submit" value="Submit">
 
         </form>
   </div>

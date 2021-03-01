@@ -59,7 +59,10 @@ function addRowSkill () {
     rem.parentNode.removeChild(rem);
     }
     var rowhtml = `<div class="row" id="rowskill`+addRowSkill.count+`">
-                    <input type="text" name="skillname`+addRowSkill.count+`" placeholder="Skill name..." >
+                   <div class="form-floating mb-3">
+                     <input type="text" name="skillname`+addRowSkill.count+`"class="form-control" id="input1" placeholder="Add Skill">
+                     <label style="color: #000;" for="input1">Add Skill</label>
+                   </div>
                     <input type="button" class="btn btn-outline-danger btn-sm" id="rmvbtnskill" value="Delete Row" onclick="removeRowSkill(this)">
                    </div>`;
     document.querySelector('#skillcontent').insertAdjacentHTML(
