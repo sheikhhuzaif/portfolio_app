@@ -3,6 +3,6 @@
 /.idea
 .idea
 /__pycache__/
-
+/redis-6.2.0/
 
 
