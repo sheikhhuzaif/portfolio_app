@@ -1,4 +1,4 @@
-//Static variables
+//Static count variables
 addRowQual.count=0;
 addRowSkill.count=0;
 addRowSocial.count=0;
