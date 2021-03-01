@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from portfolio.mail import send_joining_mail
+from portfolio.tasks import send_joining_mail,send_email
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
@@ -26,9 +26,11 @@ def register(request):
                 user = User(username=username, email=email)
                 user.set_password(raw_password=password)
                 user.save()
-                send_joining_mail(email, username)
+                send_joining_mail.delay(email, username)
                 messages.success(request, "Account successfully created for " + username)
-                return redirect('login')
+                user = authenticate(request, username=username, password=password)
+                login(request, user)
+                return redirect('home')
             else:
                 messages.error(request, "Account already exists")
         context = {}
@@ -132,7 +134,7 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, context)
                     try:
-                        send_mail(subject, email, 'admin@example.com', [user.email], fail_silently=False)
+                        send_email.delay(subject, email, [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     return redirect("/password_reset/done/")
@@ -147,7 +149,7 @@ def contact(request):
         message=request.POST.get('message')
         subject="Message from "+name+"("+email+")"
         
-        if send_mail(subject,message,EMAIL_HOST_USER,['sheikhhuzaif007@gmail.com']):
+        if send_email.delay(subject,message,['sheikhhuzaif007@gmail.com']):
             return render(request,'contactsuccess.html')
         else:
             return render(request,'contactfail.html')
