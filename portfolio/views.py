@@ -69,6 +69,10 @@ def home(request):
 
 @login_required(login_url='login')
 def edit(request):
+    if request.method=='POST':
+        data=request.POST
+        print(data)
+
     return render(request, 'edit.html', {'range': range(1)})
 
 

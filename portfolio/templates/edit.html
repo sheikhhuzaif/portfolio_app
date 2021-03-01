@@ -13,45 +13,51 @@
 
 </head>
 
-<body>
-    <header class="container group">
-
-  
-        <nav class="navigation">
-          <ul>
-            <li><a href="#PD">Personal Details</a></li>
-            <li><a href="#qual">Qualifications</a></li>
-            <li><a href="#skills">SKills</a></li>
-            <li><a href="#exp">Work Experience</a></li>
-          </ul>
+<body class="d-flex h-100 text-center text-white" style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));" >
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link active" href="#PD">Personal Details</a>
+          <a class="nav-link" href="#qual">Qualifications</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#exp">Work</a>
+          <a class="nav-link" href="#social">Social</a>
         </nav>
-  
-      </header>
-      <br><br><br><br>
-    <form id="regForm" action="" method="POST">
+      </div>
+    </header>
+    <br>
+    <form action="" method="POST">
       {% csrf_token %}
         <section id="PD">
-            <h1>Personal Details:</h1>
+            <h1>Personal Details</h1>
+            <div class="mb-3">
+              <label for="Fname" style="align-self: left;">First Name</label>
+              <input type="text" class="form-control" name="Fname" placeholder="First name" >
+            </div>
+            <div class="mb-3">
+              <label for="Lname">Last Name</label> 
+              <input type="text" class="form-control" name="Lname" placeholder="Last name" >  
+            </div>
+            <div class="mb-3">
+              <label for="phone">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" placeholder="Phone" >
+            </div>
+            <div class="form-group">
+              <label for="gender">Gender:</label>
+              <input type="radio" class="form-radio" name="gender" value="male">Male
+              <input type="radio" class="form-radio" name="gender" value="female">Female
+              <input type="radio" class="form-radio" name="gender" value="other">Other
+            </div>         
             
-            <h3><label for="Fname">Name:</label></h3>
-            <p><input type="text" name="Fname" placeholder="First name..." ></p>
-            <label for="Lname">Name:</label> 
-            <p><input type="text" name="Lname" placeholder="Last name..." ></p>
-
-            <h3><label for="phone">Phone No.:</label></h3>
-            <p><input type="tel" id="phone" placeholder="Phone..." ></p>
-        
-            <h3><label for="gender">Gender:</label></h3>
-            <input type="radio" name="gender" value="male">Male
-            <input type="radio" name="gender" value="female">Female
-            <input type="radio" name="gender" value="other">Other
         
             <h3><label for="address">Address:</label></h3>
-            <p><textarea rows="5" cols="60" name="address" placeholder="Address">
+            <p><textarea rows="5" cols="60" name="address">
             </textarea></p>
 
             <h3><label>About Yourself:</label></h3>
-            <textarea rows="5" cols="60" name="comment" placeholder="Enter text here...">
+            <textarea rows="5" cols="60" name="comment">
                 </textarea>
 
             <h3><label for="picture">Upload Your Picture.:</label></h3>
@@ -99,15 +105,14 @@
         </section>
         <br><br><br><br>
 
-        <section id="qual">
+        <section id="social">
             <h1>Link your Social Accounts</h1>
             <input type="button" value="Add Row" class="tableButton" id="addrowSocial" onclick="addRowSocial()">
             <div id="socialcontent">
             </div>
         </section>
-
-        <button name="prev">Previous</button> 
-        <button name="next">Next</button> 
+        <br>
+        <button class="btn btn-primary" type="submit">Submit</button>
 
         </form>
 </body>
