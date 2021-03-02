@@ -19,7 +19,7 @@
     <div>
       <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">About</a>
+        <a class="nav-link active " aria-current="page" href="#">About</a>
         <a class="nav-link" href="{% url 'login' %}">Login</a>
         <a class="nav-link" href="{% url 'register' %}">Register</a>
         <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
@@ -27,9 +27,30 @@
     </div>
   </header>
 
-  <main class="px-3">
-    <h1>Welcome to PRTFOLIOs</h1>
-    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+  <main id="carouselControls" class="carousel slide px-3 ">
+
+    <div class="carousel-inner w-150 p-3">
+      <div class="carousel-item active">
+        <h1>Welcome to PRTFOLIOs</h1>
+        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>  
+          </div>
+      <div class="carousel-item">
+        <h1>Welcome to PRTFOLIOs</h1>
+        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+            </div>
+      <div class="carousel-item">
+        <h1>Welcome to PRTFOLIOs</h1>
+        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"  data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselControls"  data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
   </main>
 
   <footer class="mt-auto text-white-50">

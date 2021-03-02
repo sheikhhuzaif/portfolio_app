@@ -13,10 +13,9 @@
 
 </head>
 
-<body class="d-flex text-left text-white"
-  style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
+<body style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
 
-  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <div class="container-md-8 g-2 text-white" >
     <header class="mb-auto">
       <div>
         <nav class="nav nav-masthead justify-content-center float-md">
@@ -30,111 +29,198 @@
     </header>
 
     <div class="container">
-      <form class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column" id="regForm" action="" method="POST">
+      <form id="regForm" action="" method="POST">
         {% csrf_token %}
 
-        <!-- PERSONAL DETAILS-------------------------------------------------------------->
-        <div class="container">
-          <h1>PERSONAL DETAILS</h1>
-          <div class="row g-2">
-            <div class="col-md-4">
-              <div class="form-floating mb-3">
-                <input type="text" name="Fname" class="form-control form-control-sm" id="Fname"
-                  placeholder="First Name">
-                <label style="color: #000;" for="Fname">First Name</label>
+        <div class="accordion" id="accordion-example">
+
+          <!-- PERSONAL DETAILS-------------------------------------------------------------->
+          <div class="container accordion-item">
+
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                PERSONAL DETAILS
+              </button>
+            </h2>
+
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <!-- <h1>PERSONAL DETAILS</h1> -->
+                <div class="row g-2 ">
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input type="text" name="Fname" class="form-control form-control-sm" id="Fname"
+                        placeholder="First Name">
+                      <label style="color: #000;" for="Fname">First Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                      <input type="text" name="Lname" class="form-control form-control-sm" id="Lname"
+                        placeholder="Last Name">
+                      <label style="color: #000;" for="Lname">Last Name</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone">
+                  <label style="color: #000;" for="phone">Phone Number</label>
+                </div>
+                <div class="form-radio mb-3">
+                  <h4>Gender</h4>
+                  <div class="form-radio">
+                    <input class="form-radio-input" type="radio" name="gender" id="" value="Male">
+                    <label class="form-radio-label" for="gender">
+                      Male
+                    </label>
+                  </div>
+                  <div class="form-radio">
+                    <input class="form-radio-input" type="radio" name="gender" id="gender" value="Female">
+                    <label class="form-radio-label" for="gender">
+                      Female
+                    </label>
+                  </div>
+                  <div class="form-radio">
+                    <input class="form-radio-input" type="radio" name="gender" id="gender" value="Other">
+                    <label class="form-radio-label" for="exampleRadios3">
+                      Other
+                    </label>
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+
+                  <div class="form-floating mb-3">
+                    <textarea class="form-control" placeholder="Address" id="address" name="address"
+                      style="height: 100px"></textarea>
+                    <label style="color: #000;" for="address">Address</label>
+                  </div>
+                  <div class="form-floating">
+                    <textarea class="form-control" placeholder="About Yourself" id="about" name="about"
+                      style="height: 100px"></textarea>
+                    <label style="color: #000;" for="about">About Yourself</label>
+                  </div>
+
+                </div>
+
+                <div class="mb-3">
+                  <label for="picture" class="form-label">Upload Your Picture</label>
+                  <input class="form-control" type="file" id="picture" name="picture">
+                </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-floating mb-3">
-                <input type="text" name="Lname" class="form-control form-control-sm" id="Lname" placeholder="Last Name">
-                <label style="color: #000;" for="Lname">Last Name</label>
+          </div>
+
+          <!-- QUALIFICATIONS----------------------------------------------------------------->
+          <div class="container accordion-item">
+
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                QUALIFICATIONS
+              </button>
+            </h2>
+
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+                <div class="container mb-3">
+                  <!-- <h1>QUALIFICATIONS</h1> -->
+                  <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
+                    onclick="addRowQual()">
+                  <div class="" id="qualcontent">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="form-floating mb-3">
-            <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone">
-            <label style="color: #000;" for="phone">Phone Number</label>
-          </div>
-          <div class="form-radio mb-3">
-            <h4>Gender</h4>
-            <div class="form-radio">
-              <input class="form-radio-input" type="radio" name="gender" id="" value="Male">
-              <label class="form-radio-label" for="gender">
-                Male
-              </label>
-            </div>
-            <div class="form-radio">
-              <input class="form-radio-input" type="radio" name="gender" id="gender" value="Female">
-              <label class="form-radio-label" for="gender">
-                Female
-              </label>
-            </div>
-            <div class="form-radio">
-              <input class="form-radio-input" type="radio" name="gender" id="gender" value="Other">
-              <label class="form-radio-label" for="exampleRadios3">
-                Other
-              </label>
-            </div>
-          </div>
-          <div class="form-floating mb-3">
 
-            <div class="form-floating mb-3">
-              <textarea class="form-control" placeholder="Address" id="address" name="address"
-                style="height: 100px"></textarea>
-              <label style="color: #000;" for="address">Address</label>
-            </div>
-            <div class="form-floating">
-              <textarea class="form-control" placeholder="About Yourself" id="about" name="about"
-                style="height: 100px"></textarea>
-              <label style="color: #000;" for="about">About Yourself</label>
-            </div>
+          <!-- SKILLS------------------------------------------------------------------------->
+          <div class="container accordion-item">
 
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                aria-expanded="false" aria-controls="collapseThree">
+                SKILLS
+              </button>
+            </h2>
+
+            <div id="collapseThree" class="accordion-collapse collapse " aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+
+                <div class="container mb-3">
+                  <!-- <h1>SKILLS</h1> -->
+                  <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                    onclick="addRowSkill()">
+                  <div id="skillcontent">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="mb-3">
-            <label for="picture" class="form-label">Upload Your Picture</label>
-            <input class="form-control" type="file" id="picture" name="picture">
+          <!-- WORK EXPERIENCE---------------------------------------------------------------->
+          <div class="container accordion-item">
+
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                aria-expanded="false" aria-controls="collapseFour">
+                WORK EXPERIENCE
+              </button>
+            </h2>
+
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+
+                <div class="container mb-3">
+                  <!-- <h1>WORK EXPERIENCE</h1> -->
+                  <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                    id="addrowSocial" onclick="addRowWork()">
+                  <div id="workcontent">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
+          <div class="container accordion-item">
+
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                aria-expanded="false" aria-controls="collapseFive">
+                SOCIAL ACCOUNTS
+              </button>
+            </h2>
+
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+              data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+
+
+                <div class="container mb-3">
+                  <!-- <h1>SOCIAL ACCOUNTS</h1> -->
+                  <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                    id="addrowSocial" onclick="addRowSocial()">
+                  <div id="socialcontent">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <input type="button" class="btn btn-primary" onclick="submit" value="Submit">
         </div>
-
-        <!-- QUALIFICATIONS----------------------------------------------------------------->
-        <div class="container mb-3">
-          <h1>QUALIFICATIONS</h1>
-          <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
-          onclick="addRowQual()">
-          <div class="" id="qualcontent">
-          </div>
-        </div>
-
-        <!-- SKILLS------------------------------------------------------------------------->
-        <div class="container mb-3">
-          <h1>SKILLS</h1>
-          <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" onclick="addRowSkill()">
-          <div id="skillcontent">
-          </div>
-        </div>
-          
-        <!-- WORK EXPERIENCE---------------------------------------------------------------->
-        <div class="container mb-3">
-          <h1>WORK EXPERIENCE</h1>
-          <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrowSocial"
-            onclick="addRowWork()">
-          <div id="workcontent">
-          </div>
-        </div>
-
-        <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
-        <div class="container mb-3">
-          <h1>SOCIAL ACCOUNTS</h1>
-          <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrowSocial"
-            onclick="addRowSocial()">
-          <div id="socialcontent">
-          </div>
-        </div>  
-
-        <input type="button" class="btn btn-primary" onclick="submit" value="Submit">
       </form>
     </div>
   </div>
 </body>
+
 </html>
