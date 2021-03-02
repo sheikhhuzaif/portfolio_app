@@ -71,7 +71,13 @@ def home(request):
 def edit(request):
     if request.method=='POST':
         data=request.POST
-        print(data)
+        fname=data.get('Fname')
+        lname=data.get('Lname')
+        user=User.objects.get(username=request.user)
+        user.first_name=fname
+        user.last_name=lname
+        user.save()
+        
 
     return render(request, 'edit.html', {'range': range(1)})
 
