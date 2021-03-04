@@ -85,6 +85,7 @@ def edit(request):
         userInfo.about=data.get('about')
         userInfo.picture=data.get('picture')
         userInfo.save()
+        return redirect('home')
         
 
     return render(request, 'edit.html', {'range': range(1)})

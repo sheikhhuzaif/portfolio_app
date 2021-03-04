@@ -35,3 +35,25 @@ border-bottom-color: rgb(255, 255, 255);
     border-radius: 15px;
     border-width: 5px;
 }
+.invalid-feedback {
+    display: none;
+}
+.was-validated .invalid-feedback {
+    font-family: oxygen;
+    display: block;
+}
+
+show-errors ul {
+    margin: 0;
+    padding: 0;
+
+    li, li.invalid-feedback {
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+    }
+}
+
+show-errors + button {
+    margin-top:1em;
+}
