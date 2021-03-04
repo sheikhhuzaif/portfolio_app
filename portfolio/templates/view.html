@@ -3,5 +3,10 @@
 {% block content %}
 
 <p>Username: {{ user.get_username }}</p>
+<p>Name : {{user.get_full_name}}</p>
+<p>Address: {{userInfo.address}}</p>
+<p>Phone: {{userInfo.phone}}</p>
+<p>About: {{userInfo.about}}</p>
+<img src="{{userInfo.picture}}" alt="picture">
 
 {% endblock %}

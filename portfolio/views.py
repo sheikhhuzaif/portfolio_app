@@ -13,6 +13,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from portfolios.settings import EMAIL_HOST_USER
+from portfolio.models.base import *
 
 def register(request):
     if request.user.is_authenticated:
@@ -69,14 +70,33 @@ def home(request):
 
 @login_required(login_url='login')
 def edit(request):
+    if request.method=='POST':
+        data=request.POST
+        fname=data.get('Fname')
+        lname=data.get('Lname')
+        user=User.objects.get_or_create(username=request.user)[0]
+        user.first_name=fname
+        user.last_name=lname
+        user.save()
+        print(data)
+        userInfo=UserInfo.objects.get_or_create(user=user)[0]
+        userInfo.phone=data.get('phone')
+        userInfo.address=data.get('address')
+        userInfo.about=data.get('about')
+        userInfo.picture=data.get('picture')
+        userInfo.save()
+        
+
     return render(request, 'edit.html', {'range': range(1)})
 
 
 def display(request, username):
     try:
         user = User.objects.get(username=username)
+        userInfo=UserInfo.objects.get(user=User.objects.get(username=username))
         context = {
-            'user': user
+            'user': user,
+            'userInfo':userInfo
         }
         return render(request, 'view.html', context)
     except:
