@@ -5,8 +5,8 @@ from .utils import GENDER_CHOICES, SOCIAL_CHOICES
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    intro = models.CharField(max_length=255)
     about = models.TextField(blank=True, null=True)
+    phone = models.BigIntegerField(default=0)
     gender = models.CharField(max_length=20,blank=True, null=True, choices=GENDER_CHOICES)
     picture = models.ImageField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
