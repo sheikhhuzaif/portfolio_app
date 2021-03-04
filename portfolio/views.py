@@ -90,9 +90,12 @@ def edit(request):
             Education(course_name=data.get('degreename'+str(i)),end_time=data.get('degreedate'+str(i)),university=data.get('degreefrom'+str(i)),user=userInfo,gpa=data.get('degreegpa'+str(i))).save()
             i+=1
         return redirect('home')
-        
+    context={
+            'user':User.objects.get(username=request.user),
+            'number':3
+        }
 
-    return render(request, 'edit.html', {'range': range(1)})
+    return render(request, 'edit.html', context)
 
 
 def display(request, username):

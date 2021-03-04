@@ -55,7 +55,7 @@
               <div class="row g-2">
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name" required>
+                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name" value="{{user.first_name}}" required>
                     <label style="color: #000;" class="form-label" for="Fname">First Name</label>
                   </div>
                   <div class="invalid-feedback">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname"
+                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname" value="{{user.last_name}}"
                       placeholder="Last Name" required>
                     <label style="color: #000;" for="Lname">Last Name</label>
                     <div class="invalid-feedback">
@@ -150,8 +150,16 @@
 
               <div class="container mb-3">
                 <!-- <h1>QUALIFICATIONS</h1> -->
+
                 <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
                   onclick="addRowQual()">
+                <script>
+                  window.onload = function () {
+                    for (var i = 0; i < {{number}}; i++) {
+                    addRowQual();
+                  }
+                  }
+                </script>
                 <div class="" id="qualcontent">
                 </div>
               </div>
