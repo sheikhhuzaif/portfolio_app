@@ -11,35 +11,63 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <link href="{% static 'additionalcss/about.css' %}" rel="stylesheet">
-  </head>
-  <body class="d-flex h-100 text-center text-white" style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
-    
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="mb-auto">
-    <div>
-      <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
-      <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active " aria-current="page" href="#">About</a>
-        <a class="nav-link" href="{% url 'login' %}">Login</a>
-        <a class="nav-link" href="{% url 'register' %}">Register</a>
-        <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-      </nav>
-    </div>
-  </header>
 
-  <main id="carouselControls" class="carousel slide px-3 ">
+    <style>
+      body{
+     background-image: url('{% static 'images/background.jpg' %}');
+     background-position: center;
+     background-attachment: fixed;
+     }
+     .animation{
+      position: relative;
+
+      animation: mymove 4s infinite;
+     }
+     @keyframes mymove {
+  from {left: 0px;}
+  to {left: 400px;}
+     }
+     
+}
+   </style>
+
+  </head>
+  
+  <body class=" h-100  text-white">
+    
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+         <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+           <a class="nav-link active " aria-current="page" href="#">About</a>
+         <a class="nav-link" href="{% url 'login' %}">Login</a>
+         <a class="nav-link" href="{% url 'register' %}">Register</a>
+          <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+        </nav>
+      </div>
+       </header>
+
+  <div class="align-center md-textarea">
+    <i>
+      <marquee behavior="scroll" direction="right"><h1>WELCOME TO PRTFOLIOS</h1>
+      </marquee>
+  </i>
+  </div>
+
+  <main id="carouselControls" class="carousel slide px-3 text-center">
 
     <div class="carousel-inner w-150 p-3">
       <div class="carousel-item active">
-        <h1>Welcome to PRTFOLIOs</h1>
+        <h1></h1>
         <p class="lead">Easily create and update your portfolios and share them with a single link.</p>  
           </div>
       <div class="carousel-item">
-        <h1>Welcome to PRTFOLIOs</h1>
+        <h1>  </h1>
         <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
             </div>
       <div class="carousel-item">
-        <h1>Welcome to PRTFOLIOs</h1>
+        <h1></h1>
         <p class="lead">Easily create and update your portfolios and share them with a single link.</p>      </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"  data-bs-slide="prev">
@@ -53,7 +81,8 @@
 
   </main>
 
-  <footer class="mt-auto text-white-50">
+  <footer class="mt-auto text-center text-white-50">
+    
     <p>Source code on <a href="https://github.com/" class="text-black">Github</a>, by <a href="https://github.com/sheikhhuzaif/" class="text-black">@sheikhhuzaif</a>.</p>
   </footer>
 </div>
