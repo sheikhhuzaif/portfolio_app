@@ -8,18 +8,40 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </head>
 <body>
+    <div class="container-md-8">
+    <header class="mb-auto  p-3 mb-2 bg-secondary text-white " style="height: 70px;">
+        <div >
+          <h3 class="float-md-start mb-0 " >PRTFOLIOs</h3>
+          <nav class="border rounded-pill shadow-lg p-3 mb-5 bg-body rounded nav nav-masthead justify-content-center float-md-end ">
+            <a class="border rounded-pill btn btn-outline-success nav-link " href="{% url 'about' %}">About</a>
+            <a class="border rounded-pill btn btn-outline-success nav-link" href="{% url 'contact' %}">Contact Us</a>
+            <a class="border rounded-pill btn btn-outline-success nav-link" href="{% url 'logout' %}">LOGOUT</a>
+
+          </nav>
+        </div>
+        
+      </header>
+        <br><br>
+        <div class="shadow p-3 mb-5 bg-secondary  rounded fst-italic">
     <h1>Home Page</h1>
-    <span>Hello, {{request.user}}</span>
+    <span><h4>Hello, {{request.user}}</h4></span>
     <br>
-    <span><a href="{% url 'logout' %}">Logout</a></span>
-    <br>
-    <a href="{% url 'edit'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Edit</a>
-    <a href="{% url 'settings'%}" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">Settings</a>
-    <a href="/view/{{request.user}}/" class="btn btn-outline-success" tabindex="-1" role="button" aria-disabled="true">View</a>
+    </div>
+    <!-- <div class="justify-content-center float-md-start">
+        <span><a href="{% url 'logout' %}">Logout</a></span>
+    </div>    -->
+     <br>
+
+    <div class="cover-container d-flex w-50 h-100 p-3 mx-auto flex-column">
+    <a href="{% url 'edit'%}" class="border border-3 border-success rounded-pill btn btn-outline-success w-70 p-3 fs-3" style="height: 100px;" tabindex="-1" role="button" aria-disabled="true">Complete Your Registration</a>
+    <a href="{% url 'settings'%}" class="border border-3 border-success rounded-pill btn btn-outline-success w-70 p-3 fs-3" style="height: 100px;" tabindex="-1" role="button" aria-disabled="true">Settings</a>
+    <a href="/view/{{request.user}}/" class="border border-3 border-success rounded-pill btn btn-outline-success w-70 p-3 fs-3" style="height: 100px;" tabindex="-1" role="button" aria-disabled="true">View</a>
     <br>
       {% for message in messages%}
       <p>{{message}}</p>
       {% endfor %}
+    </div>
 
+</div>
 </body>
 </html>

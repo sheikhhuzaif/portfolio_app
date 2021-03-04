@@ -31,3 +31,7 @@ margin-left: 1rem;
 color: rgb(255, 255, 255);
 border-bottom-color: rgb(255, 255, 255);
 }
+.accordion-item{
+    border-radius: 15px;
+    border-width: 5px;
+}
