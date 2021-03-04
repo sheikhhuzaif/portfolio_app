@@ -13,7 +13,7 @@ function addRowQual() {
     var rem = document.getElementById('rmvbtnqual');
     rem.parentNode.removeChild(rem);
   }
-  var rowhtml = `<div class="container" id="rowqual` + addRowQual.count + `">
+  var rowhtml = `<div class="container" name="rowqual` + addRowQual.count + `" id="rowqual` + addRowQual.count + `">
                 <div class="row g-2">
                 <div class="col-6 form-floating mb-3">
                 <input type="text" name="degreename`+ addRowQual.count + `" class="form-control" id="input1" placeholder="Degree Name" required>
@@ -34,8 +34,8 @@ function addRowQual() {
                 </div>
                 <div class="row g-2">
                 <div class="col-6 form-floating mb-3">
-                <input type="text" name="degreefrom`+ addRowQual.count + `" class="form-control" id="input3" placeholder="Year of Passing" required>
-                <label style="color: #000;" for="input3">Year of Passing</label>
+                <input type="text" name="degreefrom`+ addRowQual.count + `" class="form-control" id="input3" placeholder="University" required>
+                <label style="color: #000;" for="input3">University</label>
                     <div class="invalid-feedback">
                       Please fill out this field
                     </div>

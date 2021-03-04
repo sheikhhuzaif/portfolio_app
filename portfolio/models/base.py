@@ -22,8 +22,8 @@ class Skills(models.Model):
 
 class Education(models.Model):
     course_name = models.CharField(max_length=128, blank=False)
-    start_time = models.DateField()
-    end_time = models.DateField()
+    university=models.CharField(max_length=128,blank=False,null=True)
+    end_time = models.IntegerField()
     gpa = models.FloatField(blank=True, null=True)
     user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
 

@@ -85,6 +85,10 @@ def edit(request):
         userInfo.about=data.get('about')
         userInfo.picture=data.get('picture')
         userInfo.save()
+        i=1
+        while(data.get('degreename'+str(i))):
+            Education(course_name=data.get('degreename'+str(i)),end_time=data.get('degreedate'+str(i)),university=data.get('degreefrom'+str(i)),user=userInfo,gpa=data.get('degreegpa'+str(i))).save()
+            i+=1
         return redirect('home')
         
 
@@ -94,13 +98,16 @@ def edit(request):
 def display(request, username):
     try:
         user = User.objects.get(username=username)
-        userInfo=UserInfo.objects.get(user=User.objects.get(username=username))
+        userInfo=UserInfo.objects.get(user=user)
+        education=list(Education.objects.filter(user=userInfo))
         context = {
             'user': user,
-            'userInfo':userInfo
+            'userInfo':userInfo,
+            'education':education
         }
         return render(request, 'view.html', context)
-    except:
+    except Exception as e:
+        print(e)
         return render(request, 'error.html')
 
 
