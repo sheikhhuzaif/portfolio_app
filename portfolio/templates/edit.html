@@ -21,16 +21,11 @@
     <div class="row">
       <div class="col-2 mx-5">
         <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="PD-list" data-toggle="list" href="#PD" role="tab"
-            aria-controls="home">Personal Details</a>
-          <a class="list-group-item list-group-item-action" id="qual-list" data-toggle="list" href="#qual" role="tab"
-            aria-controls="profilew">Qualifications</a>
-          <a class="list-group-item list-group-item-action" id="skills-list" data-toggle="list" href="#skills"
-            role="tab" aria-controls="messages">Skills</a>
-          <a class="list-group-item list-group-item-action" id="exp-list" data-toggle="list" href="#exp" role="tab"
-            aria-controls="settings">Work Experience</a>
-          <a class="list-group-item list-group-item-action" id="social-list" data-toggle="list" href="#social"
-            role="tab" aria-controls="settings">Socials</a>
+          <a class="list-group-item list-group-item-action active" id="PD-list" data-toggle="list" href="#PD" role="tab">Personal Details</a>
+          <a class="list-group-item list-group-item-action" id="qual-list" data-toggle="list" href="#qual" role="tab">Qualifications</a>
+          <a class="list-group-item list-group-item-action" id="skills-list" data-toggle="list" href="#skills"role="tab">Skills</a>
+          <a class="list-group-item list-group-item-action" id="exp-list" data-toggle="list" href="#exp" role="tab">Work Experience</a>
+          <a class="list-group-item list-group-item-action" id="social-list" data-toggle="list" href="#social"role="tab">Socials</a>
         </div>
       </div>
 
@@ -135,13 +130,13 @@
 
                 <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
                   onclick="addRowQual()">
-                <script>
+                <!-- <script>
                   window.onload = function () {
                     for (var i = 0; i < {{ number }}; i++) {
                     addRowQual();
                   }
                     }
-                </script>
+                </script> -->
                 <div class="" id="qualcontent"></div>
               </div>
             </div>
@@ -187,7 +182,7 @@
         </form>
         <script src="{% static 'additionaljs/validator.js' %}"></script>
         <script>
-          var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+          var triggerTabList = [].slice.call(document.querySelectorAll('#tab a'))
           triggerTabList.forEach(function (triggerEl) {
             var tabTrigger = new bootstrap.Tab(triggerEl)
 
@@ -195,7 +190,7 @@
               event.preventDefault()
               tabTrigger.show()
             })
-          }))
+          })
         </script>
       </div>
     </div>
