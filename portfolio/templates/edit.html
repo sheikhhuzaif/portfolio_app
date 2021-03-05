@@ -16,46 +16,36 @@
 
 <body style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
 
-  <div class="container-md-8 g-2 text-white">
-    <header class="mb-auto">
-      <div>
-        <h1 class="text-center">Fill in your details</h1>
-        <!-- <nav class="nav nav-masthead justify-content-center float-md">
-          <a class="nav-link active" href="#PD">Personal Details</a>
-          <a class="nav-link" href="#qual">Qualifications</a>
-          <a class="nav-link" href="#skills">Skills</a>
-          <a class="nav-link" href="#exp">Work Experience</a>
-          <a class="nav-link" href="#social">Social</a>
-        </nav> -->
+  <div class="container-md-8 text-white">
+    <h1 class="text-center text-uppercase my-4">Fill in your details</h1>
+    <div class="row">
+      <div class="col-2 mx-5">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="PD-list" data-toggle="list" href="#PD" role="tab">Personal Details</a>
+          <a class="list-group-item list-group-item-action" id="qual-list" data-toggle="list" href="#qual" role="tab">Qualifications</a>
+          <a class="list-group-item list-group-item-action" id="skills-list" data-toggle="list" href="#skills"role="tab">Skills</a>
+          <a class="list-group-item list-group-item-action" id="exp-list" data-toggle="list" href="#exp" role="tab">Work Experience</a>
+          <a class="list-group-item list-group-item-action" id="social-list" data-toggle="list" href="#social"role="tab">Socials</a>
+        </div>
       </div>
-    </header>
-    <br><br>
 
-    <div class="container">
-      <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
-        {% csrf_token %}
+      <div class="col-8">
 
-        <div class="accordion" id="accordion-example"></div>
 
-        <!-- PERSONAL DETAILS-------------------------------------------------------------->
-        <div class="container accordion-item">
+        <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
+          {% csrf_token %}
 
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-              aria-expanded="true" aria-controls="collapseOne">
-              PERSONAL DETAILS
-            </button>
-          </h2>
+          <div class="table-content">
+            <!-- PERSONAL DETAILS-------------------------------------------------------------->
 
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
 
+            <div class="tab-pane fade show active" id="PD" role="tabpanel" aria-labelledby="PD-list">
               <!-- <h1>PERSONAL DETAILS</h1> -->
               <div class="row g-2">
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name" value="{{user.first_name}}" required>
+                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name"
+                      value="{{user.first_name}}" required>
                     <label style="color: #000;" class="form-label" for="Fname">First Name</label>
                   </div>
                   <div class="invalid-feedback">
@@ -64,8 +54,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
-                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname" value="{{user.last_name}}"
-                      placeholder="Last Name" required>
+                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname"
+                      value="{{user.last_name}}" placeholder="Last Name" required>
                     <label style="color: #000;" for="Lname">Last Name</label>
                     <div class="invalid-feedback">
                       Please fill out this field
@@ -131,83 +121,42 @@
 
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- QUALIFICATIONS----------------------------------------------------------------->
-        <div class="container accordion-item">
+            <!-- QUALIFICATIONS----------------------------------------------------------------->
 
-          <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              QUALIFICATIONS
-            </button>
-          </h2>
-
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-
+            <div class="tab-pane fade" id="qual" role="tabpanel" aria-labelledby="qual-list">
               <div class="container mb-3">
                 <!-- <h1>QUALIFICATIONS</h1> -->
 
                 <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
                   onclick="addRowQual()">
-                <script>
+                <!-- <script>
                   window.onload = function () {
-                    for (var i = 0; i < {{number}}; i++) {
+                    for (var i = 0; i < {{ number }}; i++) {
                     addRowQual();
                   }
-                  }
-                </script>
-                <div class="" id="qualcontent">
-                </div>
+                    }
+                </script> -->
+                <div class="" id="qualcontent"></div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- SKILLS------------------------------------------------------------------------->
-        <div class="container accordion-item">
-
-          <h2 class="accordion-header" id="headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              SKILLS
-            </button>
-          </h2>
-
-          <div id="collapseThree" class="accordion-collapse collapse " aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
 
 
-              <div class="container mb-3">
-                <!-- <h1>SKILLS</h1> -->
-                <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
-                  onclick="addRowSkill()">
-                <div id="skillcontent">
-                </div>
-              </div>
+
+            <!-- SKILLS------------------------------------------------------------------------->
+
+
+            <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-list">
+              <!-- <h1>SKILLS</h1> -->
+              <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                onclick="addRowSkill()">
+              <div id="skillcontent"></div>
             </div>
-          </div>
-        </div>
 
-        <!-- WORK EXPERIENCE---------------------------------------------------------------->
-        <div class="container accordion-item">
-
-          <h2 class="accordion-header" id="headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-              WORK EXPERIENCE
-            </button>
-          </h2>
-
-          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+            <!-- WORK EXPERIENCE---------------------------------------------------------------->
 
 
+            <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
               <div class="container mb-3">
                 <!-- <h1>WORK EXPERIENCE</h1> -->
                 <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
@@ -216,40 +165,35 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
-        <div class="container accordion-item">
+            <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
 
-          <h2 class="accordion-header" id="headingFive">
-            <button class="accordion-button collapsed text-white" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              SOCIAL ACCOUNTS
-            </button>
-          </h2>
-
-          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-
-
+            <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-list">
               <div class="container mb-3">
                 <!-- <h1>SOCIAL ACCOUNTS</h1> -->
                 <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
                   id="addrowSocial" onclick="addRowSocial()">
-                <div id="socialcontent">
-                </div>
+                <div id="socialcontent"></div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </form>
+        <script src="{% static 'additionaljs/validator.js' %}"></script>
+        <script>
+          var triggerTabList = [].slice.call(document.querySelectorAll('#tab a'))
+          triggerTabList.forEach(function (triggerEl) {
+            var tabTrigger = new bootstrap.Tab(triggerEl)
+
+            triggerEl.addEventListener('click', function (event) {
+              event.preventDefault()
+              tabTrigger.show()
+            })
+          })
+        </script>
+      </div>
     </div>
-    </form>
-    <script src="{% static 'additionaljs/validator.js' %}"></script>
-  </div>
   </div>
 </body>
 
