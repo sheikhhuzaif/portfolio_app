@@ -21,15 +21,15 @@
     <div class="row">
       <div class="col-2 mx-5">
         <div class="list-group" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-action active" id="PD-list" data-toggle="list" href="#PD"
+          <a class="list-group-item list-group-item-action active" id="PD-list" data-bs-toggle="list" href="#PD"
             role="tab">Personal Details</a>
-          <a class="list-group-item list-group-item-action" id="qual-list" data-toggle="list" href="#qual"
+          <a class="list-group-item list-group-item-action" id="qual-list" data-bs-toggle="list" href="#qual"
             role="tab">Qualifications</a>
-          <a class="list-group-item list-group-item-action" id="skills-list" data-toggle="list" href="#skills"
+          <a class="list-group-item list-group-item-action" id="skills-list" data-bs-toggle="list" href="#skills"
             role="tab">Skills</a>
-          <a class="list-group-item list-group-item-action" id="exp-list" data-toggle="list" href="#exp" role="tab">Work
+          <a class="list-group-item list-group-item-action" id="exp-list" data-bs-toggle="list" href="#exp" role="tab">Work
             Experience</a>
-          <a class="list-group-item list-group-item-action" id="social-list" data-toggle="list" href="#social"
+          <a class="list-group-item list-group-item-action" id="social-list" data-bs-toggle="list" href="#social"
             role="tab">Socials</a>
         </div>
       </div>
@@ -128,18 +128,19 @@
                 <input class="form-control" type="file" id="picture" name="picture">
 
               </div>
-            </div>
-            <div class="form-floating mb-3">
-              <input type="number" name="template" class="form-control form-control-sm" id="template" value="{{userInfo.view}}"
-                placeholder="Template" required>
-              <label style="color: #000;" for="Lname">Chose your template</label>
-              <div class="valid-feedback">
-                This is fine
+              <div class="form-floating mb-3">
+                <input type="number" name="template" class="form-control form-control-sm" id="template" value="{{userInfo.view}}"
+                  placeholder="Template" required>
+                <label style="color: #000;" for="Lname">Chose your template</label>
+                <div class="valid-feedback">
+                  This is fine
+                </div>
+                <div class="invalid-feedback">
+                  Please fill out this field
+                </div>
               </div>
-              <div class="invalid-feedback">
-                Please fill out this field
-              </div>
             </div>
+            
 
             <!-- QUALIFICATIONS----------------------------------------------------------------->
 
@@ -156,7 +157,9 @@
                   }
                     }
                 </script> -->
-                <div class="" id="qualcontent"></div>
+                <div class="" id="qualcontent">
+                  
+                </div>
               </div>
             </div>
 
