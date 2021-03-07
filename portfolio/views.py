@@ -13,6 +13,7 @@ from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from portfolios.settings import EMAIL_HOST_USER
+from portfolio.models.base import *
 
 def register(request):
     if request.user.is_authenticated:
@@ -69,17 +70,62 @@ def home(request):
 
 @login_required(login_url='login')
 def edit(request):
-    return render(request, 'edit.html', {'range': range(1)})
+    if request.method=='POST':
+        data=request.POST
+        fname=data.get('Fname')
+        lname=data.get('Lname')
+        user=User.objects.get_or_create(username=request.user)[0]
+        user.first_name=fname
+        user.last_name=lname
+        user.save()
+        print(data)
+        userInfo=UserInfo.objects.get_or_create(user=user)[0]
+        userInfo.phone=data.get('phone')
+        userInfo.address=data.get('address')
+        userInfo.about=data.get('about')
+        userInfo.picture=data.get('picture')
+        userInfo.view=data.get('template')
+        userInfo.save()
+        i=1
+        while(data.get('degreename'+str(i))):
+            Education(course_name=data.get('degreename'+str(i)),end_time=data.get('degreedate'+str(i)),university=data.get('degreefrom'+str(i)),user=userInfo,gpa=data.get('degreegpa'+str(i))).save()
+            i+=1
+        return redirect('home')
+    context={
+            'user':User.objects.get(username=request.user),
+            'number':3
+        }
 
+    return render(request, 'edit.html', context)
+
+
+def templatechooser(template): 
+    switcher = { 
+        0: "view.html", 
+        1: "view1.html", 
+        2: "view2.html", 
+    } 
+  
+    # get() method of dictionary data type returns  
+    # value of passed argument if it is present  
+    # in dictionary otherwise second argument will 
+    # be assigned as default value of passed argument 
+    return switcher.get(template) 
 
 def display(request, username):
     try:
         user = User.objects.get(username=username)
+        userInfo=UserInfo.objects.get(user=user)
+        template=templatechooser(userInfo.view)
+        education=list(Education.objects.filter(user=userInfo))
         context = {
-            'user': user
+            'user': user,
+            'userInfo':userInfo,
+            'education':education
         }
-        return render(request, 'view.html', context)
-    except:
+        return render(request, template, context)
+    except Exception as e:
+        print(e)
         return render(request, 'error.html')
 
 

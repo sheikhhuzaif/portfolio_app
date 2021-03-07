@@ -3,5 +3,17 @@
 {% block content %}
 
 <p>Username: {{ user.get_username }}</p>
+<p>Name : {{user.get_full_name}}</p>
+<p>Address: {{userInfo.address}}</p>
+<p>Phone: {{userInfo.phone}}</p>
+<p>About: {{userInfo.about}}</p>
+{% for e in education%}
+<p>Course: {{e.course_name}}</p>
+<p>Year of Passing: {{e.end_time}}</p>
+<p>university: {{e.university}}</p>
+<p>GPA: {{e.gpa}}</p>
+<br><br>
+{% endfor %}
+<img src="{{userInfo.picture}}" alt="picture">
 
 {% endblock %}

@@ -5,11 +5,12 @@ from .utils import GENDER_CHOICES, SOCIAL_CHOICES
 
 class UserInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    intro = models.CharField(max_length=255)
     about = models.TextField(blank=True, null=True)
+    phone = models.BigIntegerField(default=0)
     gender = models.CharField(max_length=20,blank=True, null=True, choices=GENDER_CHOICES)
     picture = models.ImageField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
+    view=models.IntegerField(blank=False,null=False, default=0)
 
 
 class Skills(models.Model):
@@ -22,8 +23,8 @@ class Skills(models.Model):
 
 class Education(models.Model):
     course_name = models.CharField(max_length=128, blank=False)
-    start_time = models.DateField()
-    end_time = models.DateField()
+    university=models.CharField(max_length=128,blank=False,null=True)
+    end_time = models.IntegerField()
     gpa = models.FloatField(blank=True, null=True)
     user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
 

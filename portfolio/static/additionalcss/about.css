@@ -1,6 +1,3 @@
-color: #333;
-text-shadow: none; 
-}
 
 body {
 text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
@@ -35,4 +32,26 @@ border-bottom-color: rgb(255, 255, 255);
 .accordion-item{
     border-radius: 15px;
     border-width: 5px;
+}
+.invalid-feedback {
+    display: none;
+}
+.was-validated .invalid-feedback {
+    font-family: oxygen;
+    display: block;
+}
+
+show-errors ul {
+    margin: 0;
+    padding: 0;
+
+    li, li.invalid-feedback {
+        margin: 0;
+        padding: 0;
+        line-height: 1em;
+    }
+}
+
+show-errors + button {
+    margin-top:1em;
 }
