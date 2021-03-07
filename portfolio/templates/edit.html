@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Enter your details</title>
+  <title>Edit</title>
   {% load static %}
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -21,8 +21,8 @@
 
     <h1 class="text-center text-uppercase my-4">Fill in your details</h1>
     <div class="row g-2">
-      <div class="col-2 mx-5">
-        <div class="list-group" id="list-tab" role="tablist">
+      <div class="col-md-2 mx-5">
+        <div class="list-group" style="padding-top: 10rem;" id="list-tab" role="tablist">
           <a class="list-group-item list-group-item-action active" id="PD-list" data-bs-toggle="list" href="#PD"
             role="tab">Personal Details</a>
           <a class="list-group-item list-group-item-action" id="qual-list" data-bs-toggle="list" href="#qual"
@@ -33,7 +33,7 @@
             Experience</a>
           <a class="list-group-item list-group-item-action" id="social-list" data-bs-toggle="list" href="#social"
             role="tab">Socials</a>
-            <button class="btn btn-primary" type="submit" form="regForm">Submit</button>
+            <button class="btn" type="submit" form="regForm" style="background-color: brown">Submit</button>
         </div>
       </div>
 
@@ -154,6 +154,33 @@
                 <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowQual"
                   onclick="addRowQual()">
                   <br><br>
+                  {% for e in education %}
+                  <div class="container" name="rowqualpre" id="rowqualpre">
+                    <div class="row g-2">
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input1" value="{{e.course_name}}" placeholder="Degree Name" required disabled>
+                        <label style="color: #000;" for="input1">Degree Name</label>
+                      </div>
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input2" value="{{e.end_time}}"placeholder="Degree Date" required disabled>
+                        <label style="color: #000;" for="input2">Degree Date</label>
+                      </div>
+                    </div>
+                    <div class="row g-2">
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input3" value="{{e.university}}" placeholder="University" required disabled>
+                        <label style="color: #000;" for="input3">University</label>
+                        
+                      </div>
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" value="{{e.gpa}}" id="input4" placeholder="GPA" disabled>
+                        <label style="color: #000;" for="input4">GPA</label>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="color: black;">
+                  {% endfor %}
+                  <br><br>
                 <div id="qualcontent"></div>
             </div>
 
@@ -166,6 +193,15 @@
               <!-- <h1>SKILLS</h1> -->
               <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowSkills"
                 onclick="addRowSkill()">
+                <br><br>
+                {% for s in skills %}
+                <div class="col-8" id ="rowskillpre" name="rowskillpre">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="input1" value="{{s.name}}"placeholder="Add Skill" required disabled>
+                    <label style="color: #000;" for="input1">Skill Name</label>
+                 </div>
+                  </div>`
+                {% endfor %}
                 <br><br>
               <div id="skillcontent"></div>
             </div>
@@ -187,6 +223,24 @@
                 <!-- <h1>SOCIAL ACCOUNTS</h1> -->
                 <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
                   id="addrowSocial" onclick="addRowSocial()">
+                  <br><br>
+                  {% for s in socials %}
+                  <div class="container" id = "rowsocialpre">
+                    <div class="row g-2">
+                      <div class="col-md">
+                        <div class="">
+                          <input class="form-control" list="socialOptions" id="socialDataList" placeholder="Social Media" value="{{s.stype}}" required disabled>
+                        </div>
+                      </div>
+                      <div class="col-md">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                          <input type="text" class="form-control" placeholder="Username" value="{{s.username}}" aria-label="Username" aria-describedby="basic-addon1" required disabled>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`
+                  {% endfor %}
                   <br><br>
                 <div id="socialcontent"></div>
               </div>

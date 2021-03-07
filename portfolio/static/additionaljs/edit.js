@@ -5,6 +5,7 @@ addRowSocial.count = 0;
 addRowWork.count = 0;
 
 
+
 //Qualification Functions
 //Add row for Qualifications
 function addRowQual() {
@@ -113,7 +114,7 @@ function addRowSocial() {
                   <div class="row g-2">
                     <div class="col-md">
                       <div class="">
-                        <input class="form-control" list="socialOptions" id="socialDataList" placeholder="Social Media" required>
+                        <input class="form-control" list="socialOptions" name="socialtype`+ addRowSocial.count + `" id="socialDataList" placeholder="Social Media" required>
                         <datalist id="socialOptions">
                           <option value="Facebook">
                           <option value="Twitter">
@@ -128,7 +129,7 @@ function addRowSocial() {
                     <div class="col-md">
                       <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                        <input type="text" class="form-control" placeholder="Username" name="socialname`+ addRowSocial.count + `" aria-label="Username" aria-describedby="basic-addon1" required>
                         <div class="invalid-feedback">
                           Please fill out this field
                         </div>
@@ -136,6 +137,7 @@ function addRowSocial() {
                     </div>
                   </div>
                   <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnsocial" value="Delete" onclick="removeRowSocial(this)">
+                  <hr style="color: black;">
                 </div>`;
   document.querySelector('#socialcontent').insertAdjacentHTML('beforeend', rowhtml);
 }

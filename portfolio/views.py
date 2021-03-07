@@ -14,6 +14,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from portfolios.settings import EMAIL_HOST_USER
 from portfolio.models.base import *
+import json
 
 def register(request):
     if request.user.is_authenticated:
@@ -90,14 +91,25 @@ def edit(request):
         while(data.get('degreename'+str(i))):
             Education(course_name=data.get('degreename'+str(i)),end_time=data.get('degreedate'+str(i)),university=data.get('degreefrom'+str(i)),user=userInfo,gpa=data.get('degreegpa'+str(i))).save()
             i+=1
+        i=1
+        while(data.get('skillname'+str(i))):
+            Skills(name=data.get('skillname'+str(i)),user=userInfo).save()
+            i+=1
+        i=1
+        while(data.get('socialname'+str(i))):
+            Social(username=data.get('socialname'+str(i)),stype=data.get('socialtype'+str(i)),user=userInfo).save()
+            i+=1
+        i=1
         return redirect('home')
     context={
             'user':User.objects.get(username=request.user),
             'userInfo':UserInfo.objects.get(user=User.objects.get(username=request.user)),
-            'number':3
+            'number':Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))).count(),
+            'education': list(Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+            'skills':list(Skills.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+            'socials':list(Social.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))))
         }
-
-    return render(request, 'edit.html', context)
+    return render(request, 'edit.html', context )
 
 
 def templatechooser(template): 
@@ -119,12 +131,14 @@ def display(request, username):
         userInfo=UserInfo.objects.get(user=user)
         template=templatechooser(userInfo.view)
         education=list(Education.objects.filter(user=userInfo))
+        skills=list(Skills.objects.filter(user=userInfo))
         context = {
             'user': user,
             'userInfo':userInfo,
-            'education':education
+            'education':education,
+            'skills':skills
         }
-        return render(request, template, context)
+        return render(request, 'view1.html', context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')

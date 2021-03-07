@@ -44,9 +44,10 @@ class Work(models.Model):
 
 
 class Social(models.Model):
-    type = models.CharField(max_length=20,choices=SOCIAL_CHOICES)
+    stype = models.CharField(max_length=20,default="Social Media")
     username = models.CharField(max_length=128)
     link = models.URLField()
+    user=models.ForeignKey(UserInfo,on_delete=models.CASCADE,default="")
 
     def __str__(self):
         return self.type + self.username
