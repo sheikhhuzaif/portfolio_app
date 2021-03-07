@@ -84,6 +84,7 @@ def edit(request):
         userInfo.address=data.get('address')
         userInfo.about=data.get('about')
         userInfo.picture=data.get('picture')
+        userInfo.view=data.get('template')
         userInfo.save()
         i=1
         while(data.get('degreename'+str(i))):
@@ -98,17 +99,31 @@ def edit(request):
     return render(request, 'edit.html', context)
 
 
+def templatechooser(template): 
+    switcher = { 
+        0: "view.html", 
+        1: "view1.html", 
+        2: "view2.html", 
+    } 
+  
+    # get() method of dictionary data type returns  
+    # value of passed argument if it is present  
+    # in dictionary otherwise second argument will 
+    # be assigned as default value of passed argument 
+    return switcher.get(template) 
+
 def display(request, username):
     try:
         user = User.objects.get(username=username)
         userInfo=UserInfo.objects.get(user=user)
+        template=templatechooser(userInfo.view)
         education=list(Education.objects.filter(user=userInfo))
         context = {
             'user': user,
             'userInfo':userInfo,
             'education':education
         }
-        return render(request, 'view1.html', context)
+        return render(request, template, context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')

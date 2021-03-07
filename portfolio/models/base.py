@@ -10,6 +10,7 @@ class UserInfo(models.Model):
     gender = models.CharField(max_length=20,blank=True, null=True, choices=GENDER_CHOICES)
     picture = models.ImageField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
+    view=models.IntegerField(blank=False,null=False, default=0)
 
 
 class Skills(models.Model):
