@@ -9,16 +9,18 @@
   {% load static %}
   <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <link rel="stylesheet" href="{% static 'additionalcss/about.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'additionalcss/about.css' %}"> -->
   <script src="{% static 'additionaljs/edit.js' %}"></script>
 
 </head>
 
-<body style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
+<body class="text=white" style="background-image: url({% static 'images/bg-01.jpg' %});, -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: cover;">
 
-  <div class="container-md-8 text-white">
     <h1 class="text-center text-uppercase my-4">Fill in your details</h1>
-    <div class="row">
+    <div class="row g-2">
       <div class="col-2 mx-5">
         <div class="list-group" id="list-tab" role="tablist">
           <a class="list-group-item list-group-item-action active" id="PD-list" data-bs-toggle="list" href="#PD"
@@ -31,6 +33,7 @@
             Experience</a>
           <a class="list-group-item list-group-item-action" id="social-list" data-bs-toggle="list" href="#social"
             role="tab">Socials</a>
+            <button class="btn btn-primary" type="submit" form="regForm">Submit</button>
         </div>
       </div>
 
@@ -40,11 +43,11 @@
         <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
           {% csrf_token %}
 
-          <div class="table-content">
+          <div class="tab-content">
             <!-- PERSONAL DETAILS-------------------------------------------------------------->
 
 
-            <div class="tab-pane fade show active" id="PD" role="tabpanel" aria-labelledby="PD-list">
+            <div class="tab-pane fade active show" id="PD" role="tabpanel" aria-labelledby="PD-list">
               <!-- <h1>PERSONAL DETAILS</h1> -->
               <div class="row g-2">
                 <div class="col-md-6">
@@ -105,7 +108,7 @@
               <div class="form-floating mb-3">
 
                 <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{{userInfo.address}}"
+                  <input class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{{userInfo.address}}"
                     required></textarea>
                   <label style="color: #000;" for="address">Address</label>
                   <div class="invalid-feedback">
@@ -113,7 +116,7 @@
                   </div>
                 </div>
                 <div class="form-floating">
-                  <textarea class="form-control" placeholder="About Yourself" id="about" name="about" value="{{userInfo.about}}"
+                  <input class="form-control" placeholder="About Yourself" id="about" name="about" value="{{userInfo.about}}"
                     style="height: 100px" required></textarea>
                   <label style="color: #000;" for="about">About Yourself</label>
                   <div class="invalid-feedback">
@@ -145,22 +148,13 @@
             <!-- QUALIFICATIONS----------------------------------------------------------------->
 
             <div class="tab-pane fade" id="qual" role="tabpanel" aria-labelledby="qual-list">
-              <div class="container mb-3">
+              
                 <!-- <h1>QUALIFICATIONS</h1> -->
-
-                <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add" id="addrow"
+                
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrow"
                   onclick="addRowQual()">
-                <!-- <script>
-                  window.onload = function () {
-                    for (var i = 0; i < {{ number }}; i++) {
-                    addRowQual();
-                  }
-                    }
-                </script> -->
-                <div class="" id="qualcontent">
-                  
-                </div>
-              </div>
+                  <br><br>
+                <div id="qualcontent"></div>
             </div>
 
 
@@ -170,8 +164,9 @@
 
             <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-list">
               <!-- <h1>SKILLS</h1> -->
-              <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+              <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
                 onclick="addRowSkill()">
+                <br><br>
               <div id="skillcontent"></div>
             </div>
 
@@ -179,13 +174,10 @@
 
 
             <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
-              <div class="container mb-3">
-                <!-- <h1>WORK EXPERIENCE</h1> -->
-                <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
                   id="addrowSocial" onclick="addRowWork()">
-                <div id="workcontent">
-                </div>
-              </div>
+                  <br><br>
+                <div id="workcontent"></div>
             </div>
 
             <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
@@ -193,13 +185,14 @@
             <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-list">
               <div class="container mb-3">
                 <!-- <h1>SOCIAL ACCOUNTS</h1> -->
-                <input type="button" class="btn btn-outline-primary btn-sm col-1 float-md-end" value="Add"
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
                   id="addrowSocial" onclick="addRowSocial()">
+                  <br><br>
                 <div id="socialcontent"></div>
               </div>
             </div>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
+            
           </div>
         </form>
         <script src="{% static 'additionaljs/validator.js' %}"></script>
@@ -216,7 +209,6 @@
         </script>
       </div>
     </div>
-  </div>
 </body>
 
 </html>

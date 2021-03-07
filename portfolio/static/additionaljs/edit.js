@@ -43,7 +43,7 @@ function addRowQual() {
                         <label style="color: #000;" for="input4">GPA</label>
                       </div>
                     </div>
-                    <input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnqual" value="Delete" onclick="removeRowQual(this)">
+                    <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnqual" value="Delete" onclick="removeRowQual(this)">
                   </div>`;
   document.querySelector('#qualcontent').insertAdjacentHTML(
     'beforeend',
@@ -59,7 +59,7 @@ function removeRowQual(input) {
     var currentrow = '#rowqual' + addRowQual.count;
     document.querySelector(currentrow).insertAdjacentHTML(
       'beforeend',
-      '<input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="emvbtnqual" value="Delete" onclick="removeRowQual(this)">'
+      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="emvbtnqual" value="Delete" onclick="removeRowQual(this)">'
     )
   }
 }
@@ -80,7 +80,7 @@ function addRowSkill() {
                       Please fill out this field
                     </div>
                   </div>
-                    <input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnskill" value="Delete" onclick="removeRowSkill(this)">
+                    <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnskill" value="Delete" onclick="removeRowSkill(this)">
                    </div>`;
   document.querySelector('#skillcontent').insertAdjacentHTML(
     'beforeend',
@@ -96,7 +96,7 @@ function removeRowSkill(input) {
     var currentrow = '#rowskill' + addRowSkill.count;
     document.querySelector(currentrow).insertAdjacentHTML(
       'beforeend',
-      '<input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnskill" value="Delete" onclick="removeRowSkill(this)">'
+      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnskill" value="Delete" onclick="removeRowSkill(this)">'
     )
   }
 }
@@ -135,7 +135,7 @@ function addRowSocial() {
                       </div>
                     </div>
                   </div>
-                  <input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnsocial" value="Delete" onclick="removeRowSocial(this)">
+                  <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnsocial" value="Delete" onclick="removeRowSocial(this)">
                 </div>`;
   document.querySelector('#socialcontent').insertAdjacentHTML('beforeend', rowhtml);
 }
@@ -148,7 +148,7 @@ function removeRowSocial(input) {
     var currentrow = '#rowsocial' + addRowSocial.count;
     document.querySelector(currentrow).insertAdjacentHTML(
       'beforeend',
-      '<input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnsocial" value="Delete" onclick="removeRowSocial(this)">'
+      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnsocial" value="Delete" onclick="removeRowSocial(this)">'
     )
   }
 }
@@ -194,7 +194,7 @@ function addRowWork() {
                       </div>
                     </div>
                   </div>
-                  <input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnwork" value="Delete" onclick="removeRowWork(this)">
+                  <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnwork" value="Delete" onclick="removeRowWork(this)">
                  </div>`;
   document.querySelector('#workcontent').insertAdjacentHTML('beforeend', rowhtml);
 }
@@ -207,7 +207,7 @@ function removeRowWork(input) {
     var currentrow = '#rowwork' + addRowWork.count;
     document.querySelector(currentrow).insertAdjacentHTML(
       'beforeend',
-      '<input type="button" class="btn btn-outline-danger btn-sm col-2 float-md-end" id="rmvbtnwork" value="Delete" onclick="removeRowWork(this)">'
+      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnwork" value="Delete" onclick="removeRowWork(this)">'
     )
   }
 }

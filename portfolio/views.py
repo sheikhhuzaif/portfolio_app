@@ -93,6 +93,7 @@ def edit(request):
         return redirect('home')
     context={
             'user':User.objects.get(username=request.user),
+            'userInfo':UserInfo.objects.get(user=User.objects.get(username=request.user)),
             'number':3
         }
 
