@@ -59,7 +59,7 @@ function removeRowQual(input) {
     var currentrow = '#rowqual' + addRowQual.count;
     document.querySelector(currentrow).insertAdjacentHTML(
       'beforeend',
-      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="emvbtnqual" value="Delete" onclick="removeRowQual(this)">'
+      '<input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnqual" value="Delete" onclick="removeRowQual(this)">'
     )
   }
 }

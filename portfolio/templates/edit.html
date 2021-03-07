@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="text=white" style="background-image: url({% static 'images/bg-01.jpg' %});, -webkit-background-size: cover;
+<body class="text-white" style="background-image: url({% static 'images/bg-01.jpg' %});, -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
     background-size: cover;">
@@ -151,7 +151,7 @@
               
                 <!-- <h1>QUALIFICATIONS</h1> -->
                 
-                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrow"
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowQual"
                   onclick="addRowQual()">
                   <br><br>
                 <div id="qualcontent"></div>
@@ -164,7 +164,7 @@
 
             <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-list">
               <!-- <h1>SKILLS</h1> -->
-              <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
+              <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowSkills"
                 onclick="addRowSkill()">
                 <br><br>
               <div id="skillcontent"></div>
@@ -175,7 +175,7 @@
 
             <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
                 <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
-                  id="addrowSocial" onclick="addRowWork()">
+                  id="addrowWork" onclick="addRowWork()">
                   <br><br>
                 <div id="workcontent"></div>
             </div>
