@@ -138,7 +138,7 @@ def display(request, username):
             'education':education,
             'skills':skills
         }
-        return render(request, 'view1.html', context)
+        return render(request, template, context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')
