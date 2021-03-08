@@ -24,8 +24,8 @@ function addRowQual() {
                         </div>
                       </div>
                       <div class="col-6 form-floating mb-3">
-                        <input type="text" name="degreedate`+ addRowQual.count + `" class="form-control" id="input2" placeholder="Degree Date" required>
-                        <label style="color: #000;" for="input2">Degree Date</label>
+                        <input type="text" name="degreedate`+ addRowQual.count + `" class="form-control" id="input2" placeholder="Year of Passing" required>
+                        <label style="color: #000;" for="input2">Year of Passing</label>
                         <div class="invalid-feedback">
                           Please fill out this field
                         </div>
