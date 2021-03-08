@@ -100,15 +100,23 @@ def edit(request):
             Social(username=data.get('socialname'+str(i)),stype=data.get('socialtype'+str(i)),user=userInfo).save()
             i+=1
         i=1
+        while(data.get('jobtitle'+str(i))):
+            Work(user=userInfo,title=data.get('jobtitle'+str(i)),start_date=data.get('startdate'+str(i)),end_date=data.get('enddate'+str(i)),company=data.get('companyname'+str(i))).save()
+            i+=1
+        i=1
         return redirect('home')
-    context={
-            'user':User.objects.get(username=request.user),
-            'userInfo':UserInfo.objects.get(user=User.objects.get(username=request.user)),
-            'number':Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))).count(),
-            'education': list(Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
-            'skills':list(Skills.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
-            'socials':list(Social.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))))
-        }
+    if UserInfo.objects.filter(user=User.objects.get(username=request.user)).count():
+        context={
+                'user':User.objects.get(username=request.user),
+                'userInfo':UserInfo.objects.get(user=User.objects.get(username=request.user)),
+                'number':Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))).count(),
+                'education': list(Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'skills':list(Skills.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'socials':list(Social.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'work':list(Work.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))))
+            }
+    else:
+        context={}
     return render(request, 'edit.html', context )
 
 
@@ -132,11 +140,13 @@ def display(request, username):
         template=templatechooser(userInfo.view)
         education=list(Education.objects.filter(user=userInfo))
         skills=list(Skills.objects.filter(user=userInfo))
+        work=list(Work.objects.filter(user=userInfo))
         context = {
             'user': user,
             'userInfo':userInfo,
             'education':education,
-            'skills':skills
+            'skills':skills,
+            'work':work
         }
         return render(request, template, context)
     except Exception as e:

@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="text-white" style="background-image: url({% static 'images/bg-01.jpg' %});, -webkit-background-size: cover;
+<body class="text-white" style="background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
     background-size: cover;">
@@ -46,14 +46,14 @@
           <div class="tab-content">
             <!-- PERSONAL DETAILS-------------------------------------------------------------->
 
-
+            
             <div class="tab-pane fade active show" id="PD" role="tabpanel" aria-labelledby="PD-list">
               <!-- <h1>PERSONAL DETAILS</h1> -->
               <div class="row g-2">
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name"
-                      value="{{user.first_name}}" required>
+                      value="{% if user %}{{user.first_name}}{% endif %}" required>
                     <label style="color: #000;" class="form-label" for="Fname">First Name</label>
                   </div>
                   <div class="invalid-feedback">
@@ -63,7 +63,7 @@
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <input type="text" name="Lname" class="form-control form-control-sm" id="Lname"
-                      value="{{user.last_name}}" placeholder="Last Name" required>
+                      value="{% if user %}{{user.last_name}}{% endif %}" placeholder="Last Name" required>
                     <label style="color: #000;" for="Lname">Last Name</label>
                     <div class="valid-feedback">
                       This is fine
@@ -75,7 +75,7 @@
                 </div>
               </div>
               <div class="form-floating mb-3">
-                <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone" value="{{userInfo.phone}}" required>
+                <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone" value="{% if userInfo %}{{userInfo.phone}}{% endif %}" required>
                 <label style="color: #000;" for="phone">Phone Number</label>
                 <div class="invalid-feedback">
                   Please fill out this field
@@ -108,7 +108,7 @@
               <div class="form-floating mb-3">
 
                 <div class="form-floating mb-3">
-                  <input class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{{userInfo.address}}"
+                  <input class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{% if userInfo %}{{userInfo.address}}{% endif %}"
                     required></textarea>
                   <label style="color: #000;" for="address">Address</label>
                   <div class="invalid-feedback">
@@ -116,7 +116,7 @@
                   </div>
                 </div>
                 <div class="form-floating">
-                  <input class="form-control" placeholder="About Yourself" id="about" name="about" value="{{userInfo.about}}"
+                  <input class="form-control" placeholder="About Yourself" id="about" name="about" value="{% if userInfo %}{{userInfo.about}}{% endif %}"
                     style="height: 100px" required></textarea>
                   <label style="color: #000;" for="about">About Yourself</label>
                   <div class="invalid-feedback">
@@ -132,7 +132,7 @@
 
               </div>
               <div class="form-floating mb-3">
-                <input type="number" name="template" class="form-control form-control-sm" id="template" value="{{userInfo.view}}"
+                <input type="number" name="template" class="form-control form-control-sm" id="template" value="{% if userInfo %}{{userInfo.view}}{% endif %}"
                   placeholder="Template" required>
                 <label style="color: #000;" for="Lname">Chose your template</label>
                 <div class="valid-feedback">
@@ -200,7 +200,9 @@
                     <input type="text" class="form-control" id="input1" value="{{s.name}}"placeholder="Add Skill" required disabled>
                     <label style="color: #000;" for="input1">Skill Name</label>
                  </div>
-                  </div>`
+                 <hr style="color: black;">
+                  </div>
+                  
                 {% endfor %}
                 <br><br>
               <div id="skillcontent"></div>
@@ -212,6 +214,32 @@
             <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
                 <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
                   id="addrowWork" onclick="addRowWork()">
+                  <br><br>
+                  {% for w in work %}
+                  <div class="container" id="rowworkpre">
+                    <div class="row g-2">
+                      <div class="form-floating mb-3 col-6">
+                        <input type="text" class="form-control" id="input1" placeholder="Job Title" value="{{w.title}}" required disabled>
+                        <label style="color: #000;" for="input1">Job <Title></Title></label>
+                      </div>
+                      <div class="form-floating mb-3 col-6">
+                        <input type="text"  class="form-control" id="input2" value="{{w.company}}" placeholder="Company Name" required disabled>
+                        <label style="color: #000;" for="input2">Company Name</label>
+                      </div>
+                    </div>
+                    <div class="row g-2">
+                      <div class="form-floating mb-3 col-6">
+                        <input type="date" id="start-date" class="form-control" value="{{w.start_date}}" required disabled>
+                        <label for="start-date" style="color: black;">Start Date</label>
+                      </div>
+                      <div class="form-floating mb-3 col-6">
+                        <input value="{{w.end_date}}" type="date" id="end-date" class="form-control" required disabled>
+                        <label for="end-date" style="color: black;">End Date</label>
+                      </div>
+                    </div>
+                    <hr style="color: black;">
+                    </div>
+                  {% endfor %}
                   <br><br>
                 <div id="workcontent"></div>
             </div>
@@ -239,7 +267,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>`
+                  </div>
+                  <hr style="color: black;">
                   {% endfor %}
                   <br><br>
                 <div id="socialcontent"></div>

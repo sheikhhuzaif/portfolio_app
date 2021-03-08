@@ -45,6 +45,7 @@ function addRowQual() {
                       </div>
                     </div>
                     <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnqual" value="Delete" onclick="removeRowQual(this)">
+                    <hr style="color: black;">
                   </div>`;
   document.querySelector('#qualcontent').insertAdjacentHTML(
     'beforeend',
@@ -82,6 +83,7 @@ function addRowSkill() {
                     </div>
                   </div>
                     <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnskill" value="Delete" onclick="removeRowSkill(this)">
+                    <hr style="color: black;">
                    </div>`;
   document.querySelector('#skillcontent').insertAdjacentHTML(
     'beforeend',
@@ -197,7 +199,8 @@ function addRowWork() {
                     </div>
                   </div>
                   <input type="button" class="btn btn-danger btn-sm col-2 float-md-end" id="rmvbtnwork" value="Delete" onclick="removeRowWork(this)">
-                 </div>`;
+                  <hr style="color: black;">
+                  </div>`;
   document.querySelector('#workcontent').insertAdjacentHTML('beforeend', rowhtml);
 }
 
