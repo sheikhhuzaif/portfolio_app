@@ -28,7 +28,7 @@ def register(request):
                 user = User(username=username, email=email)
                 user.set_password(raw_password=password)
                 user.save()
-                send_joining_mail.delay(email, username)
+                # send_joining_mail.delay(email, username)
                 messages.success(request, "Account successfully created for " + username)
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
@@ -86,6 +86,7 @@ def edit(request):
         userInfo.about=data.get('about')
         userInfo.picture=data.get('picture')
         userInfo.view=data.get('template')
+        userInfo.gender=data.get('gender')
         userInfo.save()
         i=1
         while(data.get('degreename'+str(i))):
