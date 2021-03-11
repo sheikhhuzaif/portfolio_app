@@ -18,12 +18,12 @@
             background-attachment: fixed;
         }
         
-        .img {
-            padding-bottom: 50px;
+        .car {
+            margin-bottom: 50px;
         }
         
         .bg-image {
-            padding-bottom: 200px;
+            margin-bottom: 40px;
         }
         
         .welcome {
@@ -34,12 +34,12 @@
 </head>
 
 <body class="d-flex h-100 text-center text-white" style="background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;">
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;">
 
     <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
+        <header class="mb-5">
             <div>
                 <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
                 <nav class="nav nav-masthead justify-content-center float-md-end">
@@ -52,8 +52,8 @@
         </header>
 
         <div class="bg-image">
-            <div class="">
-                <img src="{% static 'images/logo.png' %} " width="300 " height="300 ">
+            <div class="mb-3">
+                <img src="{% static 'images/logo.png' %} " width="280 " height="280 ">
             </div>
 
             <div class="welcome">
@@ -61,48 +61,178 @@
             </div>
         </div>
 
-
-        <main id="carouselControls" class="carousel slide px-3 text-center">
+        <main id="carouselControls" class="carousel slide p-5 px-3 text-center car">
 
             <div class="carousel-inner w-150 p-3">
                 <div class="carousel-item active">
                     <h1></h1>
-                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+                    <p class="lead fs-4">Easily create and update your portfolios
+                        <br>and share them with a single link.</p>
                 </div>
-                <div class="carousel-item">
-                    <h1> </h1>
-                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
-                </div>
-                <div class="carousel-item">
-                    <h1></h1>
-                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
 
+                <div class="carousel-item">
+                    <div class="text-center ">
+                        <div class=" ">
+                            <img src="{% static 'images/templates.png' %} " alt="Feature 01 " width="60 " height="60">
+                        </div>
+                        <div class=" ">
+                            <h4 class="mt-24 ">TEMPLATES</h4>
+                            <p class="text-sm mb-0 ">Just choose from our multiple templates.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class=" text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/registration.jpg' %} " alt="Feature 02 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">REGISTRATION</h4>
+                            <p class="text-sm mb-0 ">Fill in your details
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/download.jfif' %} " alt="Feature 03 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">GET YOUR PORTFOLIO</h4>
+                            <p class="text-sm mb-0 ">Download or share your portfolio with a single link
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+            </div>
         </main>
 
-        <footer class="mt-auto text-center text-white-50 ">
-            <div class="social "><a href="# "><i class="icon ion-social-instagram "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-facebook "></i></a></div>
+        <div class="mb-3">
+            <p class="lead fs-4">Don't have an account?
+                <br><a href="{% url 'register' %}">GET STARTED</a></p>
+        </div>
+
+
+        <!-- <section id="carouselControls2" class="carousel slide p-5 px-3 text-center">
+            <div>
+                <h4>Easy steps to create your portfolio</h>
+            </div>
+
+            <div class="carousel-inner w-150 p-3">
+
+                <div class="carousel-item">
+                    <div class="text-center ">
+                        <div class=" ">
+                            <img src="{% static 'images/templates.png' %} " alt="Feature 01 " width="60 " height="60">
+                        </div>
+                        <div class=" ">
+                            <h4 class="mt-24 ">TEMPLATES</h4>
+                            <p class="text-sm mb-0 ">Choose from multiple templates
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="carousel-item">
+                    <div class="text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/download.jfif' %} " alt="Feature 03 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">GET YOUR PORTFOLIO</h4>
+                            <p class="text-sm mb-0 ">Download or share your portfolio with a single link
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <div class=" text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/registration.jpg' %} " alt="Feature 02 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">REGISTRATION</h4>
+                            <p class="text-sm mb-0 ">Fill in your details
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls2" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls2" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+        </section> -->
+
+        <!-- <div class=" col-md-8 d-flex mx-auto flex-column ">
+            <div>
+                <h4>Easy steps to create your portfolio</h>
+            </div>
+
+            <div>
+                <div class="row ">
+                    <div class="col-md-4 text-center ">
+                        <div class=" ">
+                            <img src="{% static 'images/templates.png' %} " alt="Feature 01 " width="60 " height="60">
+                        </div>
+                        <div class=" ">
+                            <h4 class="mt-24 ">TEMPLATES</h4>
+                            <p class="text-sm mb-0 ">Choose from multiple templates
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/registration.jpg' %} " alt="Feature 02 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">REGISTRATION</h4>
+                            <p class="text-sm mb-0 ">Fill in your details
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center ">
+                        <div class=" ">
+                            <div class=" ">
+                                <img src="{% static 'images/download.jfif' %} " alt="Feature 03 " width="60 " height="60 ">
+                            </div>
+                            <h4 class="mt-24 ">GET YOUR PORTFOLIO</h4>
+                            <p class="text-sm mb-0 ">Download or share your portfolio with a single link
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="mt-auto text-center text-white-50">
             <!-- <ul class="list-inline ">
-                <li class="list-inline-item "> <a class="nav-link active " aria-current="page " href="# ">About</a></li>
-                <li class="list-inline-item "> <a class="nav-link " href="{% url 'login' %} ">Login</a></li>
-                <li class="list-inline-item "><a class="nav-link " href="{% url 'register' %} ">Register</a></li>
-                <li class="list-inline-item "><a class="nav-link " href="{% url 'contact' %} ">Contact Us</a></li>
-            </ul> -->
-            <p class="copyright "> © PRTFOLIOs</p>
-            <p>Source code on <a href="https://github.com/ " class="text-black ">Github</a>, by <a href="https://github.com/sheikhhuzaif/ " class="text-black ">@sheikhhuzaif</a>.</p>
+            <li class="list-inline-item "> <a class="nav-link active " aria-current="page " href="# ">About</a></li>
+            <li class="list-inline-item "> <a class="nav-link " href="{% url 'login' %} ">Login</a></li>
+            <li class="list-inline-item "><a class="nav-link " href="{% url 'register' %} ">Register</a></li>
+            <li class="list-inline-item "><a class="nav-link " href="{% url 'contact' %} ">Contact Us</a></li>
+        </ul> -->
+        <p class="copyright "> © PRTFOLIOs<br>Follow us on <a href="https://github.com/sheikhhuzaif/portfolio_app" class="text-black ">Github</a></p>
         </footer>
-
-    </div>
-
 
 </body>
 
