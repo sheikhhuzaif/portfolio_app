@@ -127,7 +127,8 @@ def templatechooser(template):
     switcher = { 
         0: "view.html", 
         1: "view1.html", 
-        2: "view2.html", 
+        2: "view2.html",
+        3: "view3.html",
     } 
   
     # get() method of dictionary data type returns  
@@ -163,7 +164,7 @@ def display(request, username):
                 messages.info(request, "I will get back to you as soon as possible")
             except Exception:
                 messages.error(request, "Could not contact. Try Again Later")
-        return render(request, template, context)
+        return render(request, 'view3.html', context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')
