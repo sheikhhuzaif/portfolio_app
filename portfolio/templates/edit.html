@@ -76,7 +76,7 @@
               <div class="row g-2">
                 <div class="col-md-6 mb-3">
                   <select class="form-select" required aria-label="select gender" name="gender" style="height: 3.6rem">
-                    <option value="">Select Gender</option>
+                    <option value="{{userInfo.gender}}">{% if userInfo.gender %}{{userInfo.gender}}{% else %}Select Gender{% endif %}</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Non-Binary">Non-Binary</option>
@@ -86,7 +86,7 @@
                 <div class="col-md-6">
                   <div class="form-floating mb-3">
                     <input type="text" name="profession" class="form-control form-control-sm" id="profession"
-                      value="" placeholder="Profession" required>
+                      value="{{userInfo.profession}}" placeholder="Profession" required>
                     <label style="color: #000;" for="profession">Profession</label>
                     <div class="invalid-feedback">
                       Please fill out this field
@@ -106,7 +106,7 @@
                   </div>
                 </div>
                 <div class="form-floating mb-3 col-md-6">
-                  <input name="dob" type="date" id="dob" class="form-control" required>
+                  <input name="dob" type="date" id="dob" class="form-control" value="{{userInfo.dob}}" required>
                   <label for="dob" style="color: black;">DOB</label>
                   <div class="invalid-feedback">
                     Please fill out this field
