@@ -41,18 +41,3 @@ body {
     font-family: oxygen;
     display: block;
 }
-
-show-errors ul {
-    margin: 0;
-    padding: 0;
-    li,
-    li.invalid-feedback {
-        margin: 0;
-        padding: 0;
-        line-height: 1em;
-    }
-}
-
-show-errors+button {
-    margin-top: 1em;
-}
