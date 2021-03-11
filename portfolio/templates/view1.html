@@ -13,12 +13,12 @@
 
 
     <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-    <link href="{% static 'boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
-    <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/1/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
     <link href="{% static 'additionalcss/view1.css' %}" rel="stylesheet">
@@ -74,13 +74,14 @@
                     <img src="{% static 'images/bg-01.jpg' %}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-                    
+
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May
                                         1995</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{userInfo.phone}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
+                                    <span>{{userInfo.phone}}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York,
                                         USA</span></li>
                             </ul>
@@ -103,11 +104,10 @@
             </div>
 
         </div><!-- End About Me -->
+   
 
-
-
-        <!-- ======= Skills  ======= -->
-        <section id="skills">
+    <!-- ======= Skills  ======= -->
+    <div id="skills">
         <div class="skills container" style="align-items:right ;">
 
             <div class="section-title">
@@ -117,18 +117,16 @@
 
             <div class="row skills-content">
                 <ul class="skills-items">
-                    <li>Skill 1</li><br>
-                    <li>Skill 2</li><br>
-                    <li>Skill 3</li><br>
-                    <li>Skill 4</li><br>
-                    <li>Skill 5</li><br>
-                    <li>Skill 6</li><br>
+                    {% for s in skills %}
+                    <li>{{s.name}}</li><br>
+                    {% endfor %}
                 </ul>
 
 
             </div>
 
-        </div><!-- End Skills -->
+        </div>
+    </div><!-- End Skills -->
 
     </section><!-- End About Section -->
 
@@ -146,29 +144,30 @@
     </section><!-- End Resume Section -->
 
     <!-- ======= Education Section ======= -->
-    <section id="Education" class="Education">
+    <section id="Education" class="services">
         <div class="container">
 
             <div class="section-title">
                 <h2>Education</h2>
                 <p>My Education</p>
             </div>
-            {% for e in education %}
+            
             <div class="row">
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+                {% for e in education %}
+                <div class="col-lg-4 col-md-6 mt-4">
                     <div class="icon-box">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                        <h4><a href="">{{e.course_name}}</a></h4>
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4>{{e.course_name}}</a></h4>
                         <h4>{{e.university}}</h4>
                         <p>{{e.end_time}}</p>
                         <h1>{{e.gpa}}</h1>
                     </div>
                 </div>
+                {% endfor %}
 
             </div>
             <br><br><br>
-            {% endfor %}
-
+            
         </div>
     </section><!-- End Education Section -->
     <section id="WorkExp" class="WorkExp">
@@ -272,13 +271,13 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
-    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
-    <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+    <script src="{% static 'vendor/1/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/1/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'vendor/1/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'vendor/1/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'vendor/1/purecounter/purecounter.js' %}"></script>
+    <script src="{% static 'vendor/1/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/1/waypoints/noframework.waypoints.js' %}"></script>
 
     <!-- Template Main JS File -->
     <script src="{% static 'additionaljs/view1.js' %}"></script>

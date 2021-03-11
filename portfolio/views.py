@@ -14,6 +14,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from portfolios.settings import EMAIL_HOST_USER
 from portfolio.models.base import *
+import json
 
 def register(request):
     if request.user.is_authenticated:
@@ -27,7 +28,7 @@ def register(request):
                 user = User(username=username, email=email)
                 user.set_password(raw_password=password)
                 user.save()
-                send_joining_mail.delay(email, username)
+                # send_joining_mail.delay(email, username)
                 messages.success(request, "Account successfully created for " + username)
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
@@ -85,18 +86,39 @@ def edit(request):
         userInfo.about=data.get('about')
         userInfo.picture=data.get('picture')
         userInfo.view=data.get('template')
+        userInfo.gender=data.get('gender')
         userInfo.save()
         i=1
         while(data.get('degreename'+str(i))):
             Education(course_name=data.get('degreename'+str(i)),end_time=data.get('degreedate'+str(i)),university=data.get('degreefrom'+str(i)),user=userInfo,gpa=data.get('degreegpa'+str(i))).save()
             i+=1
+        i=1
+        while(data.get('skillname'+str(i))):
+            Skills(name=data.get('skillname'+str(i)),user=userInfo).save()
+            i+=1
+        i=1
+        while(data.get('socialname'+str(i))):
+            Social(username=data.get('socialname'+str(i)),stype=data.get('socialtype'+str(i)),user=userInfo).save()
+            i+=1
+        i=1
+        while(data.get('jobtitle'+str(i))):
+            Work(user=userInfo,title=data.get('jobtitle'+str(i)),start_date=data.get('startdate'+str(i)),end_date=data.get('enddate'+str(i)),company=data.get('companyname'+str(i))).save()
+            i+=1
+        i=1
         return redirect('home')
-    context={
-            'user':User.objects.get(username=request.user),
-            'number':3
-        }
-
-    return render(request, 'edit.html', context)
+    if UserInfo.objects.filter(user=User.objects.get(username=request.user)).count():
+        context={
+                'user':User.objects.get(username=request.user),
+                'userInfo':UserInfo.objects.get(user=User.objects.get(username=request.user)),
+                'number':Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))).count(),
+                'education': list(Education.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'skills':list(Skills.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'socials':list(Social.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user)))),
+                'work':list(Work.objects.filter(user=UserInfo.objects.get(user=User.objects.get(username=request.user))))
+            }
+    else:
+        context={}
+    return render(request, 'edit.html', context )
 
 
 def templatechooser(template): 
@@ -118,10 +140,14 @@ def display(request, username):
         userInfo=UserInfo.objects.get(user=user)
         template=templatechooser(userInfo.view)
         education=list(Education.objects.filter(user=userInfo))
+        skills=list(Skills.objects.filter(user=userInfo))
+        work=list(Work.objects.filter(user=userInfo))
         context = {
             'user': user,
             'userInfo':userInfo,
-            'education':education
+            'education':education,
+            'skills':skills,
+            'work':work
         }
         return render(request, template, context)
     except Exception as e:

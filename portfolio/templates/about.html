@@ -1,8 +1,8 @@
-
 <!doctype html>
 
 <html lang="en" class="h-100">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About PORTFOLIOs</title>
@@ -13,82 +13,97 @@
     <link href="{% static 'additionalcss/about.css' %}" rel="stylesheet">
 
     <style>
-      body{
-     background-image: url('{% static 'images/background.jpg' %}');
-     background-position: center;
-     background-attachment: fixed;
-     }
-     .animation{
-      position: relative;
+        body {
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .img {
+            padding-bottom: 50px;
+        }
+        
+        .bg-image {
+            padding-bottom: 200px;
+        }
+        
+        .welcome {
+            font-size: 50px;
+        }
+    </style>
 
-      animation: mymove 4s infinite;
-     }
-     @keyframes mymove {
-  from {left: 0px;}
-  to {left: 400px;}
-     }
-     
-}
-   </style>
+</head>
 
-  </head>
-  <body class="d-flex h-100 text-center text-white" style="background-image: url({% static 'images/bg-01.jpg' %});, -webkit-background-size: cover;
+<body class="d-flex h-100 text-center text-white" style="background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;">
-    
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-         <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-           <a class="nav-link active " aria-current="page" href="#">About</a>
-         <a class="nav-link" href="{% url 'login' %}">Login</a>
-         <a class="nav-link" href="{% url 'register' %}">Register</a>
-          <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
-        </nav>
-      </div>
-       </header>
 
-  <div class="align-center md-textarea">
-    <i>
-      <marquee behavior="scroll" direction="right"><h1>WELCOME TO PRTFOLIOS</h1>
-      </marquee>
-  </i>
-  </div>
-
-  <main id="carouselControls" class="carousel slide px-3 text-center">
-
-    <div class="carousel-inner w-150 p-3">
-      <div class="carousel-item active">
-        <h1></h1>
-        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>  
-          </div>
-      <div class="carousel-item">
-        <h1>  </h1>
-        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="mb-auto">
+            <div>
+                <h3 class="float-md-start mb-0">PRTFOLIOs</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link active " aria-current="page" href="#">About</a>
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </nav>
             </div>
-      <div class="carousel-item">
-        <h1></h1>
-        <p class="lead">Easily create and update your portfolios and share them with a single link.</p>      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls"  data-bs-slide="prev">
+        </header>
+
+        <div class="bg-image">
+            <div class="">
+                <img src="{% static 'images/logo.png' %} " width="300 " height="300 ">
+            </div>
+
+            <div class="welcome">
+                <b>WELCOME TO PRTFOLIOS</b>
+            </div>
+        </div>
+
+
+        <main id="carouselControls" class="carousel slide px-3 text-center">
+
+            <div class="carousel-inner w-150 p-3">
+                <div class="carousel-item active">
+                    <h1></h1>
+                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+                </div>
+                <div class="carousel-item">
+                    <h1> </h1>
+                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+                </div>
+                <div class="carousel-item">
+                    <h1></h1>
+                    <p class="lead">Easily create and update your portfolios and share them with a single link.</p>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselControls"  data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselControls" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
 
-  </main>
+        </main>
 
-  <footer class="mt-auto text-center text-white-50">
-    
-    <p>Source code on <a href="https://github.com/" class="text-black">Github</a>, by <a href="https://github.com/sheikhhuzaif/" class="text-black">@sheikhhuzaif</a>.</p>
-  </footer>
-</div>
+        <footer class="mt-auto text-center text-white-50 ">
+            <div class="social "><a href="# "><i class="icon ion-social-instagram "></i></a><a href="# "><i class="icon ion-social-snapchat "></i></a><a href="# "><i class="icon ion-social-twitter "></i></a><a href="# "><i class="icon ion-social-facebook "></i></a></div>
+            <!-- <ul class="list-inline ">
+                <li class="list-inline-item "> <a class="nav-link active " aria-current="page " href="# ">About</a></li>
+                <li class="list-inline-item "> <a class="nav-link " href="{% url 'login' %} ">Login</a></li>
+                <li class="list-inline-item "><a class="nav-link " href="{% url 'register' %} ">Register</a></li>
+                <li class="list-inline-item "><a class="nav-link " href="{% url 'contact' %} ">Contact Us</a></li>
+            </ul> -->
+            <p class="copyright "> © PRTFOLIOs</p>
+            <p>Source code on <a href="https://github.com/ " class="text-black ">Github</a>, by <a href="https://github.com/sheikhhuzaif/ " class="text-black ">@sheikhhuzaif</a>.</p>
+        </footer>
 
-    
-  </body>
+    </div>
+
+
+</body>
+
 </html>
