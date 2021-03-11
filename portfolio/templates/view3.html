@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   {% load static %}
-  <title>iPortfolio Bootstrap Template - Index</title>
+  <title>{{user.get_full_name}}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +39,12 @@
       <div class="profile">
         <img src="" alt="" class="img-fluid rounded-circle">
         <h1 class="text-light"><a href="">{{user.get_full_name}}</a></h1>
-
+        <div class="social-links mt-3 text-center">
+          
+          {% for s in social %}
+          <a href="https://wwww.{{s.link1}}/" class="{{s.get_type}}"><i class="bx bxl-{{s.get_type}}"></i></a>
+        {% endfor %}
+      </div>
       <nav id="navbar" class="nav-menu navbar">
         <ul>
           <li><a href="#about" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>About</span></a></li>
@@ -124,7 +129,14 @@
           <h2>Resume</h2>
           <p>Check My Resume</p>
         </div>
-
+        <div class="row">
+          <div class="col md-4 justify-content-center">
+            <div class="btn btn-primary">View my resume</div>
+          </div>
+          <div class="col md-4 justify-content-center">
+            <div class="btn btn-primary">Download my resume</div>
+          </div>
+        </div>
         
 
       </div>
@@ -270,7 +282,7 @@
   <script src="{% static 'vendor/3/waypoints/noframework.waypoints.js' %}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{% static 'additonaljs/view3.js'}"></script>
+  <script src="{% static 'additionaljs/view3.js' %}"></script>
 
 </body>
 

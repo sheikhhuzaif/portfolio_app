@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
     {% load static %}
-  <title>MyResume Bootstrap Template - Index</title>
+  <title>{{user.get_full_name}}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   
@@ -125,7 +125,14 @@
           <h2>Resume</h2>
           <p>Check My Resume</p>
         </div>
-
+        <div class="row">
+          <div class="col md-4 justify-content-center">
+            <div class="btn btn-primary">View my resume</div>
+          </div>
+          <div class="col md-4 justify-content-center">
+            <div class="btn btn-primary">Download my resume</div>
+          </div>
+        </div>
        
 
       </div>
