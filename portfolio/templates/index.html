@@ -64,12 +64,17 @@ background-size: cover;">
             <a href="{% url 'edit'%} " class="border border-3 border-success rounded-pill btn btt-alt btn-outline-success w-70 p-3 fs-3 " style="height: 100px; " tabindex="-1 " role="button " aria-disabled="true ">Complete Your Registration</a>
             <a href="{% url 'settings'%} " class="border border-3 border-success rounded-pill btn btt-alt btn-outline-success w-70 p-3 fs-3 " style="height: 100px; " tabindex="-1 " role="button " aria-disabled="true ">Settings</a>
             <a href="/view/{{request.user}}/ " class="border border-3 border-success rounded-pill btn btt-alt btn-outline-success w-70 p-3 fs-3 " style="height: 100px; " tabindex="-1 " role="button " aria-disabled="true ">View</a>
-            <br> {% for message in messages%}
-            <p>{{message}}</p>
-            {% endfor %}
         </div>
 
     </div>
+    <script>
+       
+          '{% for message in messages %}'
+          var message='{{message}}'
+          '{% endfor %}'
+          alert(message)
+        
+      </script>
 </body>
 
 </html>
