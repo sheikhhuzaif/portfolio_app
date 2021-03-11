@@ -173,6 +173,9 @@ def password_change(request):
             username = request.user
             user = authenticate(request, username=username, password=old)
             if user is not None:
+                if len(new)<8:
+                    messages.info(request, 'password too short')
+                    return redirect('password')
                 user.set_password(new)
                 user.save()
                 user = authenticate(request, username=username, password=new)
