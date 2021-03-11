@@ -96,6 +96,15 @@
 	<div id="dropDownSelect1"></div>
 	
 
+	<script>
+		
+		  '{% for message in messages %}'
+		  var message='{{message}}'
+		  '{% endfor %}'
+		  alert(message)
+		
+	  </script>
+	  
 <!--===============================================================================================-->
 	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
 <!--===============================================================================================-->

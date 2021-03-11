@@ -1,4 +1,27 @@
 
+<<<<<<< HEAD
+form{
+  width: 1000px;
+  background-color: #49708f;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+input{
+  background-color: #a9b2b9;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  border-top: none;
+}
+textarea{
+  background-color: #a9b2b9;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  background-attachment: ;
+}
+=======
 body {
 text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
 box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
@@ -8,6 +31,7 @@ box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
 max-width: 42em;
 }
 
+>>>>>>> 40d05ae0c1dbd37c4358d9f87395ae77bd37794d
 
 
 .nav-masthead .nav-link {
