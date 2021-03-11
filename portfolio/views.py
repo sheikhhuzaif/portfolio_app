@@ -87,6 +87,8 @@ def edit(request):
         userInfo.picture=data.get('picture')
         userInfo.view=data.get('template')
         userInfo.gender=data.get('gender')
+        userInfo.profession=data.get('profession')
+        userInfo.dob=data.get('dob')
         userInfo.save()
         i=1
         while(data.get('degreename'+str(i))):
@@ -125,7 +127,8 @@ def templatechooser(template):
     switcher = { 
         0: "view.html", 
         1: "view1.html", 
-        2: "view2.html", 
+        2: "view2.html",
+        3: "view3.html",
     } 
   
     # get() method of dictionary data type returns  
@@ -142,14 +145,26 @@ def display(request, username):
         education=list(Education.objects.filter(user=userInfo))
         skills=list(Skills.objects.filter(user=userInfo))
         work=list(Work.objects.filter(user=userInfo))
+        social=list(Social.objects.filter(user__user__username=username))
         context = {
             'user': user,
             'userInfo':userInfo,
             'education':education,
             'skills':skills,
-            'work':work
+            'work':work,
+            'social':social
         }
-        return render(request, template, context)
+        if request.method=='POST':
+            sender_name=request.POST.get('name')
+            sender_email=request.POST.get('email')
+            sender_subject=request.POST.get('subject')
+            sender_mail=request.POST.get('message')
+            try:
+                send_email.delay(subject='Message from '+sender_name+'('+sender_email+')',message=sender_mail,recipient_list=[user.email,])
+                messages.info(request, "I will get back to you as soon as possible")
+            except Exception:
+                messages.error(request, "Could not contact. Try Again Later")
+        return render(request, 'view3.html', context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')
@@ -173,6 +188,9 @@ def password_change(request):
             username = request.user
             user = authenticate(request, username=username, password=old)
             if user is not None:
+                if len(new)<8:
+                    messages.info(request, 'password too short')
+                    return redirect('password')
                 user.set_password(new)
                 user.save()
                 user = authenticate(request, username=username, password=new)

@@ -3,22 +3,15 @@
 
 <head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit</title>
-    {% load static %}
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <!-- <link rel="stylesheet" href="{% static 'additionalcss/about.css' %}"> -->
-    <script src="{% static 'additionaljs/edit.js' %}"></script>
-    <style>
-        body {
-            background-image: url('{% static 'images/background.jpg' %}');
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit</title>
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+  
+  <!-- <link rel="stylesheet" href="{% static 'additionalcss/about.css' %}"> -->
+  <script src="{% static 'additionaljs/edit.js' %}"></script>
+
 </head>
 
 <body class="text-white" style="background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
@@ -28,255 +21,276 @@
 
     <h1 class="text-center text-uppercase mb-5 pt-3">Fill in your details</h1>
     <div class="row g-2">
-        <div class="col-md-2 mx-auto">
-            <div class="list-group" style="padding-top: 1rem;" id="list-tab" role="tablist">
-                <a class="list-group-item list-group-item-action active" id="PD-list" data-bs-toggle="list" href="#PD" role="tab">Personal Details</a>
-                <a class="list-group-item list-group-item-action" id="qual-list" data-bs-toggle="list" href="#qual" role="tab">Qualifications</a>
-                <a class="list-group-item list-group-item-action" id="skills-list" data-bs-toggle="list" href="#skills" role="tab">Skills</a>
-                <a class="list-group-item list-group-item-action" id="exp-list" data-bs-toggle="list" href="#exp" role="tab">Work
+      <div class="col-md-2 mx-auto">
+        <div class="list-group" style="padding-top: 1rem;" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="PD-list" data-bs-toggle="list" href="#PD"
+            role="tab">Personal Details</a>
+          <a class="list-group-item list-group-item-action" id="qual-list" data-bs-toggle="list" href="#qual"
+            role="tab">Qualifications</a>
+          <a class="list-group-item list-group-item-action" id="skills-list" data-bs-toggle="list" href="#skills"
+            role="tab">Skills</a>
+          <a class="list-group-item list-group-item-action" id="exp-list" data-bs-toggle="list" href="#exp" role="tab">Work
             Experience</a>
-                <a class="list-group-item list-group-item-action" id="social-list" data-bs-toggle="list" href="#social" role="tab">Socials</a>
-                <button class="btn" type="submit" form="regForm" style="background-color: brown">Submit</button>
-            </div>
+          <a class="list-group-item list-group-item-action" id="social-list" data-bs-toggle="list" href="#social"
+            role="tab">Socials</a>
+          <button class="btn" type="submit" form="regForm" style="background-color: brown">Submit</button>
         </div>
+      </div>
 
-        <div class="col-md-8 mx-auto">
-
-
-            <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
-                {% csrf_token %}
-
-                <div class="tab-content">
-                    <!-- PERSONAL DETAILS-------------------------------------------------------------->
+      <div class="col-md-8 mx-auto">
 
 
-                    <div class="tab-pane fade active show" id="PD" role="tabpanel" aria-labelledby="PD-list">
-                        <!-- <h1>PERSONAL DETAILS</h1> -->
-                        <div class="row g-2">
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name" value="{% if user %}{{user.first_name}}{% endif %}" required>
-                                    <label style="color: #000;" class="form-label" for="Fname">First Name</label>
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please fill out this field
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname" value="{% if user %}{{user.last_name}}{% endif %}" placeholder="Last Name" required>
-                                    <label style="color: #000;" for="Lname">Last Name</label>
-                                    <div class="invalid-feedback">
-                                        Please fill out this field
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
+          {% csrf_token %}
+
+          <div class="tab-content">
+            <!-- PERSONAL DETAILS-------------------------------------------------------------->
+
+            
+            <div class="tab-pane fade active show" id="PD" role="tabpanel" aria-labelledby="PD-list">
+              <!-- <h1>PERSONAL DETAILS</h1> -->
+              <div class="row g-2">
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="Fname" class="form-control" id="Fname" placeholder="First Name"
+                      value="{% if user %}{{user.first_name}}{% endif %}" required>
+                    <label style="color: #000;" class="form-label" for="Fname">First Name</label>
+                  </div>
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="Lname" class="form-control form-control-sm" id="Lname"
+                      value="{% if user %}{{user.last_name}}{% endif %}" placeholder="Last Name" required>
+                    <label style="color: #000;" for="Lname">Last Name</label>
+                    <div class="invalid-feedback">
+                      Please fill out this field
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
-                        <div class="row g-2">
-                            <div class="col-md-6 mb-3">
-                                <select class="form-select" required aria-label="select gender" name="gender" style="height: 3.6rem">
-                    <option value="">Select Gender</option>
+              <div class="row g-2">
+                <div class="col-md-6 mb-3">
+                  <select class="form-select" required aria-label="select gender" name="gender" style="height: 3.6rem">
+                    <option value="{{userInfo.gender}}">{% if userInfo.gender %}{{userInfo.gender}}{% else %}Select Gender{% endif %}</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Non-Binary">Non-Binary</option>
                   </select>
-                                <div class="invalid-feedback">Please select a Gender</div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating mb-3">
-                                    <input type="text" name="profession" class="form-control form-control-sm" id="profession" value="" placeholder="Profession" required>
-                                    <label style="color: #000;" for="profession">Profession</label>
-                                    <div class="invalid-feedback">
-                                        Please fill out this field
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="row g-2">
-                            <div class="col-md-6 form-floating mb-3">
-                                <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone" value="{% if userInfo %}{{userInfo.phone}}{% endif %}" required>
-                                <label style="color: #000;" for="phone">Phone Number</label>
-                                <div class="invalid-feedback">
-                                    Please fill out this field
-                                </div>
-                            </div>
-                            <div class="form-floating mb-3 col-md-6">
-                                <input name="dob" type="date" id="dob" class="form-control" required>
-                                <label for="dob" style="color: black;">DOB</label>
-                                <div class="invalid-feedback">
-                                    Please fill out this field
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="form-floating mb-3">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{% if userInfo %}{{userInfo.address}}{% endif %}" required></textarea>
-                                <label style="color: #000;" for="address">Address</label>
-                                <div class="invalid-feedback">
-                                    Please fill out this field
-                                </div>
-                            </div>
-                            <div class="form-floating">
-                                <input class="form-control" placeholder="About Yourself" id="about" name="about" value="{% if userInfo %}{{userInfo.about}}{% endif %}" style="height: 100px" required></textarea>
-                                <label style="color: #000;" for="about">About Yourself</label>
-                                <div class="invalid-feedback">
-                                    Please fill out this field
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="picture" class="form-label">Upload Your Picture</label>
-                            <input class="form-control" type="file" id="picture" name="picture">
-
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" name="template" class="form-control form-control-sm" id="template" value="{% if userInfo %}{{userInfo.view}}{% endif %}" placeholder="Template" required>
-                            <label style="color: #000;" for="Lname">Chose your template</label>
-                            <div class="valid-feedback">
-                                This is fine
-                            </div>
-                            <div class="invalid-feedback">
-                                Please fill out this field
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- QUALIFICATIONS----------------------------------------------------------------->
-
-                    <div class="tab-pane fade" id="qual" role="tabpanel" aria-labelledby="qual-list">
-
-                        <!-- <h1>QUALIFICATIONS</h1> -->
-
-                        <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowQual" onclick="addRowQual()">
-                        <br><br> {% for e in education %}
-                        <div class="container" name="rowqualpre" id="rowqualpre">
-                            <div class="row g-2">
-                                <div class="col-6 form-floating mb-3">
-                                    <input type="text" class="form-control" id="input1" value="{{e.course_name}}" placeholder="Degree Name" required disabled>
-                                    <label style="color: #000;" for="input1">Degree Name</label>
-                                </div>
-                                <div class="col-6 form-floating mb-3">
-                                    <input type="text" class="form-control" id="input2" value="{{e.end_time}}" placeholder="Degree Date" required disabled>
-                                    <label style="color: #000;" for="input2">Degree Date</label>
-                                </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-6 form-floating mb-3">
-                                    <input type="text" class="form-control" id="input3" value="{{e.university}}" placeholder="University" required disabled>
-                                    <label style="color: #000;" for="input3">University</label>
-
-                                </div>
-                                <div class="col-6 form-floating mb-3">
-                                    <input type="text" class="form-control" value="{{e.gpa}}" id="input4" placeholder="GPA" disabled>
-                                    <label style="color: #000;" for="input4">GPA</label>
-                                </div>
-                            </div>
-                        </div>
-                        <hr style="color: black;"> {% endfor %}
-                        <br><br>
-                        <div id="qualcontent"></div>
-                    </div>
-
-
-
-                    <!-- SKILLS------------------------------------------------------------------------->
-
-
-                    <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-list">
-                        <!-- <h1>SKILLS</h1> -->
-                        <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowSkills" onclick="addRowSkill()">
-                        <br><br> {% for s in skills %}
-                        <div class="col-8" id="rowskillpre" name="rowskillpre">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="input1" value="{{s.name}}" placeholder="Add Skill" required disabled>
-                                <label style="color: #000;" for="input1">Skill Name</label>
-                            </div>
-                            <hr style="color: black;">
-                        </div>
-
-                        {% endfor %}
-                        <br><br>
-                        <div id="skillcontent"></div>
-                    </div>
-
-                    <!-- WORK EXPERIENCE---------------------------------------------------------------->
-
-
-                    <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
-                        <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowWork" onclick="addRowWork()">
-                        <br><br> {% for w in work %}
-                        <div class="container" id="rowworkpre">
-                            <div class="row g-2">
-                                <div class="form-floating mb-3 col-6">
-                                    <input type="text" class="form-control" id="input1" placeholder="Job Title" value="{{w.title}}" required disabled>
-                                    <label style="color: #000;" for="input1">Job <Title></Title></label>
-                                </div>
-                                <div class="form-floating mb-3 col-6">
-                                    <input type="text" class="form-control" id="input2" value="{{w.company}}" placeholder="Company Name" required disabled>
-                                    <label style="color: #000;" for="input2">Company Name</label>
-                                </div>
-                            </div>
-                            <hr style="color: black;">
-                        </div>
-                        {% endfor %}
-                        <br><br>
-                        <div id="workcontent"></div>
-                    </div>
-
-                    <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
-
-                    <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-list">
-                        <div class="container mb-3">
-                            <!-- <h1>SOCIAL ACCOUNTS</h1> -->
-                            <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowSocial" onclick="addRowSocial()">
-                            <br><br> {% for s in socials %}
-                            <div class="container" id="rowsocialpre">
-                                <div class="row g-2">
-                                    <div class="col-md">
-                                        <div class="">
-                                            <input class="form-control" list="socialOptions" id="socialDataList" placeholder="Social Media" value="{{s.stype}}" required disabled>
-                                        </div>
-                                    </div>
-                                    <div class="col-md">
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-text" id="basic-addon1">@</span>
-                                            <input type="text" class="form-control" placeholder="Username" value="{{s.username}}" aria-label="Username" aria-describedby="basic-addon1" required disabled>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr style="color: black;"> {% endfor %}
-                            <br><br>
-                            <div id="socialcontent"></div>
-                        </div>
-                    </div>
-
-
+                  <div class="invalid-feedback">Please select a Gender</div>
                 </div>
-            </form>
-            <script src="{% static 'additionaljs/validator.js' %}"></script>
-            <script>
-                var triggerTabList = [].slice.call(document.querySelectorAll('#tab a'))
-                triggerTabList.forEach(function(triggerEl) {
-                    var tabTrigger = new bootstrap.Tab(triggerEl)
+                <div class="col-md-6">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="profession" class="form-control form-control-sm" id="profession"
+                      value="{{userInfo.profession}}" placeholder="Profession" required>
+                    <label style="color: #000;" for="profession">Profession</label>
+                    <div class="invalid-feedback">
+                      Please fill out this field
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-                    triggerEl.addEventListener('click', function(event) {
-                        event.preventDefault()
-                        tabTrigger.show()
-                    })
-                })
-            </script>
-        </div>
+
+
+              <div class="row g-2">
+                <div class="col-md-6 form-floating mb-3">
+                  <input type="tel" name="phone" class="form-control" id="phone" placeholder="phone" value="{% if userInfo %}{{userInfo.phone}}{% endif %}" required>
+                  <label style="color: #000;" for="phone">Phone Number</label>
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div>
+                </div>
+                <div class="form-floating mb-3 col-md-6">
+                  <input name="dob" type="date" id="dob" class="form-control" value="{{userInfo.dob}}" required>
+                  <label for="dob" style="color: black;">DOB</label>
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="form-floating mb-3">
+                <div class="form-floating mb-3">
+                  <input class="form-control" placeholder="Address" id="address" name="address" style="height: 100px" value="{% if userInfo %}{{userInfo.address}}{% endif %}"
+                    required></textarea>
+                  <label style="color: #000;" for="address">Address</label>
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div>
+                </div>
+                <div class="form-floating">
+                  <input class="form-control" placeholder="About Yourself" id="about" name="about" value="{% if userInfo %}{{userInfo.about}}{% endif %}"
+                    style="height: 100px" required></textarea>
+                  <label style="color: #000;" for="about">About Yourself</label>
+                  <div class="invalid-feedback">
+                    Please fill out this field
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="picture" class="form-label">Upload Your Picture</label>
+                <input class="form-control" type="file" id="picture" name="picture">
+
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" name="template" class="form-control form-control-sm" id="template" value="{% if userInfo %}{{userInfo.view}}{% endif %}"
+                  placeholder="Template" required>
+                <label style="color: #000;" for="Lname">Chose your template</label>
+                <div class="valid-feedback">
+                  This is fine
+                </div>
+                <div class="invalid-feedback">
+                  Please fill out this field
+                </div>
+              </div>
+            </div>
+            
+
+            <!-- QUALIFICATIONS----------------------------------------------------------------->
+
+            <div class="tab-pane fade" id="qual" role="tabpanel" aria-labelledby="qual-list">
+              
+                <!-- <h1>QUALIFICATIONS</h1> -->
+                
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowQual"
+                  onclick="addRowQual()">
+                  <br><br>
+                  {% for e in education %}
+                  <div class="container" name="rowqualpre" id="rowqualpre">
+                    <div class="row g-2">
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input1" value="{{e.course_name}}" placeholder="Degree Name" required disabled>
+                        <label style="color: #000;" for="input1">Degree Name</label>
+                      </div>
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input2" value="{{e.end_time}}"placeholder="Degree Date" required disabled>
+                        <label style="color: #000;" for="input2">Degree Date</label>
+                      </div>
+                    </div>
+                    <div class="row g-2">
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" id="input3" value="{{e.university}}" placeholder="University" required disabled>
+                        <label style="color: #000;" for="input3">University</label>
+                        
+                      </div>
+                      <div class="col-6 form-floating mb-3">
+                        <input type="text" class="form-control" value="{{e.gpa}}" id="input4" placeholder="GPA" disabled>
+                        <label style="color: #000;" for="input4">GPA</label>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="color: black;">
+                  {% endfor %}
+                  <br><br>
+                <div id="qualcontent"></div>
+            </div>
+
+
+
+            <!-- SKILLS------------------------------------------------------------------------->
+
+
+            <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-list">
+              <!-- <h1>SKILLS</h1> -->
+              <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add" id="addrowSkills"
+                onclick="addRowSkill()">
+                <br><br>
+                {% for s in skills %}
+                <div class="col-8" id ="rowskillpre" name="rowskillpre">
+                  <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="input1" value="{{s.name}}"placeholder="Add Skill" required disabled>
+                    <label style="color: #000;" for="input1">Skill Name</label>
+                 </div>
+                 <hr style="color: black;">
+                  </div>
+                  
+                {% endfor %}
+                <br><br>
+              <div id="skillcontent"></div>
+            </div>
+
+            <!-- WORK EXPERIENCE---------------------------------------------------------------->
+
+
+            <div class="tab-pane fade" id="exp" role="tabpanel" aria-labelledby="exp-list">
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
+                  id="addrowWork" onclick="addRowWork()">
+                  <br><br>
+                  {% for w in work %}
+                  <div class="container" id="rowworkpre">
+                    <div class="row g-2">
+                      <div class="form-floating mb-3 col-6">
+                        <input type="text" class="form-control" id="input1" placeholder="Job Title" value="{{w.title}}" required disabled>
+                        <label style="color: #000;" for="input1">Job <Title></Title></label>
+                      </div>
+                      <div class="form-floating mb-3 col-6">
+                        <input type="text"  class="form-control" id="input2" value="{{w.company}}" placeholder="Company Name" required disabled>
+                        <label style="color: #000;" for="input2">Company Name</label>
+                      </div>
+                    </div>
+                    <hr style="color: black;">
+                    </div>
+                  {% endfor %}
+                  <br><br>
+                <div id="workcontent"></div>
+            </div>
+
+            <!-- SOCIAL ACCOUNT----------------------------------------------------------------->
+
+            <div class="tab-pane fade" id="social" role="tabpanel" aria-labelledby="social-list">
+              <div class="container mb-3">
+                <!-- <h1>SOCIAL ACCOUNTS</h1> -->
+                <input type="button" class="btn btn-success btn-sm col-1 float-md-end" value="Add"
+                  id="addrowSocial" onclick="addRowSocial()">
+                  <br><br>
+                  {% for s in socials %}
+                  <div class="container" id = "rowsocialpre">
+                    <div class="row g-2">
+                      <div class="col-md">
+                        <div class="">
+                          <input class="form-control" list="socialOptions" id="socialDataList" placeholder="Social Media" value="{{s.stype}}" required disabled>
+                        </div>
+                      </div>
+                      <div class="col-md">
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">@</span>
+                          <input type="text" class="form-control" placeholder="Username" value="{{s.username}}" aria-label="Username" aria-describedby="basic-addon1" required disabled>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="color: black;">
+                  {% endfor %}
+                  <br><br>
+                <div id="socialcontent"></div>
+              </div>
+            </div>
+
+            
+          </div>
+        </form>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'additionaljs/validator.js' %}"></script>
+        <script>
+          var triggerTabList = [].slice.call(document.querySelectorAll('#tab a'))
+          triggerTabList.forEach(function (triggerEl) {
+            var tabTrigger = new bootstrap.Tab(triggerEl)
+
+            triggerEl.addEventListener('click', function (event) {
+              event.preventDefault()
+              tabTrigger.show()
+            })
+          })
+        </script>
+      </div>
     </div>
 </body>
 

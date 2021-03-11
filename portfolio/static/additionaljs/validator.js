@@ -18,3 +18,17 @@
         }, false)
       })
   })()
+
+function CheckPassword(inputtxt) 
+{ 
+var passw = /^{6,20}$/;
+if(inputtxt.value.match(passw)) 
+{ 
+return true;
+}
+else
+{ 
+alert('New password too short!')
+return false;
+}
+}
