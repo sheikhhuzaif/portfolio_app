@@ -34,9 +34,10 @@
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url({% static 'images/bg-01.png' %});">
-			<div class="wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33" style="padding: 62px 110px 33px 110px;">
+			<div class="wrap-login100" style="padding-top: 50px; padding-bottom: 30px;">
 				<form class="login100-form validate-form flex-sb flex-w" method="POST">
           {% csrf_token %}
+		  			<span class="login100-form-title"><a class="login100-form-title" style="text-decoration: none;" href="{% url 'about' %}">PRTFOLIOs</a></span>
 					<span class="login100-form-title p-b-53">
 						Sign Up With
 					</span>

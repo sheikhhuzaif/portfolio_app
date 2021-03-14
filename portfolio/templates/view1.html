@@ -125,10 +125,11 @@
                 <h2>Resume</h2>
                 <p>Check My Resume</p>
             </div>
+            {% if userInfo.resume %}
             <div class="row">
                 <iframe src="{{ userInfo.resume.url }}" frameborder="0" height="600"></iframe>
             </div>
-
+            {% endif %}
 
         </div>
     </section><!-- End Resume Section -->

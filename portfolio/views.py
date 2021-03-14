@@ -97,8 +97,15 @@ def edit(request):
         userInfo.about=data.get('about')
         try:
             picture=request.FILES['picture']
-            resume=request.FILES['resume']
+            
             userInfo.picture=picture
+            
+        except Exception as e:
+            print(e)
+        try:
+            
+            resume=request.FILES['resume']
+            
             userInfo.resume=resume
         except Exception as e:
             print(e)
@@ -147,10 +154,6 @@ def templatechooser(template):
         3: "view3.html",
     } 
   
-    # get() method of dictionary data type returns  
-    # value of passed argument if it is present  
-    # in dictionary otherwise second argument will 
-    # be assigned as default value of passed argument 
     return switcher.get(template) 
 
 def display(request, username):

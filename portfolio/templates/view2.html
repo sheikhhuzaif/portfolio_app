@@ -49,7 +49,7 @@
   <section id="hero" class="d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>{{user.get_full_name}}</h1>
-      <p>I'm an Engineer</span></p>
+      <p>I'm an {{userInfo.profession}}</span></p>
     </div>
   </section><!-- End Hero -->
 
@@ -72,8 +72,9 @@
             <div class="row">
               <div class="col-lg-6">
                 <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> {{userInfo.birthday}}<span></span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> {{userInfo.dob}}<span></span></li>
                   <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{userInfo.phone}}</span></li>
+                  <li><i class="bi bi-chevron-right"></i> <strong>Gender:</strong> <span>{{userInfo.gender}}</span></li>
                 </ul>
               </div>
               <div class="col-lg-6">
@@ -126,9 +127,11 @@
           <h2>Resume</h2>
           <p>Check My Resume</p>
         </div>
+        {% if userInfo.resume %}
         <div class="row">
-          <iframe src="{{ userInfo.resume.url }}" frameborder="0" height="600"></iframe>
-      </div>
+            <iframe src="{{ userInfo.resume.url }}" frameborder="0" height="600"></iframe>
+        </div>
+        {% endif %}
        
 
       </div>
