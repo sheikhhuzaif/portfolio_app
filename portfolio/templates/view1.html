@@ -10,25 +10,18 @@
     <meta content="" name="keywords">
 
     
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
 
-    <!-- Vendor CSS Files -->
-    <link href="{% static 'vendor/1/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="{% static 'vendor/1/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/1/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/1/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/1/remixicon/remixicon.css' %}" rel="stylesheet">
     <link href="{% static 'vendor/1/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
     <link href="{% static 'additionalcss/view1.css' %}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: Personal - v4.0.1
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -38,8 +31,6 @@
         <div class="container">
 
             <h1><a href="/view/{{request.user}}">{{user.get_full_name}}</a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
             <h2>I'm a <span>{{userInfo.profession}}</span></h2>
 
             <nav id="navbar" class="navbar">
@@ -52,8 +43,7 @@
                     <li><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
-
+            </nav>
 
         </div>
     </header><!-- End Header -->
@@ -276,7 +266,7 @@
 
 
     <!-- Vendor JS Files -->
-    <script src="{% static 'vendor/1/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="{% static 'vendor/1/glightbox/js/glightbox.min.js' %}"></script>
     <script src="{% static 'vendor/1/isotope-layout/isotope.pkgd.min.js' %}"></script>
     <script src="{% static 'vendor/1/php-email-form/validate.js' %}"></script>
