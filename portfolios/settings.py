@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google'
 ]
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -161,6 +162,12 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+
+
+MEDIA_ROOT=os.path.join(BASE_DIR, 'portfolio/media/')
+
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

@@ -1,8 +1,8 @@
 /db.sqlite3
 /venv/
-/.idea
+*/.idea/*
 .idea
-/__pycache__/
+*/__pycache__/*
 /redis-6.2.0/
-
+*/media/*
 

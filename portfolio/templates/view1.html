@@ -61,7 +61,7 @@
 
             <div class="row">
                 <div class="col-lg-4" data-aos="fade-right">
-                    <img src="{% static 'images/bg-01.png' %}" class="img-fluid" alt="">
+                    <img src="{{ userInfo.picture.url }}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
 
@@ -126,13 +126,8 @@
                 <p>Check My Resume</p>
             </div>
             <div class="row">
-                <div class="col md-4">
-                  <div class="btn btn-success">View my resume</div>
-                </div>
-                <div class="col md-4">
-                  <div class="btn btn-success">Download my resume</div>
-                </div>
-              </div>
+                <iframe src="{{ userInfo.resume.url }}" frameborder="0" height="600"></iframe>
+            </div>
 
 
         </div>

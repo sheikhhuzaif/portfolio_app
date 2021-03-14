@@ -37,8 +37,10 @@
     <div class="d-flex flex-column">
 
       <div class="profile">
-        <img src="{% static 'images/bg-01.png' %}" alt="" class="img-fluid rounded-circle">
+        <!-- <img src="{{ userInfo.picture.url }}" alt="" class="img-fluid rounded-circle"> -->
+        <br><br>
         <h1 class="text-light"><a href="">{{user.get_full_name}}</a></h1>
+        <p class="text-light text-center">I'm a {{userInfo.profession}}</p>
         <div class="social-links mt-3 text-center">
           
           {% for s in social %}
@@ -70,7 +72,7 @@
 
         <div class="row">
           <div class="col-lg-4">
-            <img src="" class="img-fluid" alt="">
+            <img src="{{ userInfo.picture.url }}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-8 pt-4 pt-lg-0 content">
             <div class="row">
@@ -130,13 +132,8 @@
           <p>Check My Resume</p>
         </div>
         <div class="row">
-          <div class="col md-4 justify-content-center">
-            <div class="btn btn-primary">View my resume</div>
-          </div>
-          <div class="col md-4 justify-content-center">
-            <div class="btn btn-primary">Download my resume</div>
-          </div>
-        </div>
+          <iframe src="{{ userInfo.resume.url }}" frameborder="0" height="600"></iframe>
+      </div>
         
 
       </div>

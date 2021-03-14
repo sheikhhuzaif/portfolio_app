@@ -66,6 +66,14 @@ def logoutUser(request):
 
 @login_required(login_url='login')
 def home(request):
+    if request.method=='POST':
+        template=request.POST.get('template')
+        print(request.POST.get('template'))
+        user=User.objects.get_or_create(username=request.user)[0]
+        userInfo=UserInfo.objects.get_or_create(user=user)[0]
+        userInfo.view=template
+        userInfo.save()
+        return redirect('/view/'+str(request.user))
     return render(request, 'index.html')
 
 
@@ -79,13 +87,17 @@ def edit(request):
         user.first_name=fname
         user.last_name=lname
         user.save()
-        print(data)
         userInfo=UserInfo.objects.get_or_create(user=user)[0]
         userInfo.phone=data.get('phone')
         userInfo.address=data.get('address')
         userInfo.about=data.get('about')
-        userInfo.picture=data.get('picture')
-        userInfo.view=data.get('template')
+        try:
+            picture=request.FILES['picture']
+            resume=request.FILES['resume']
+            userInfo.picture=picture
+            userInfo.resume=resume
+        except Exception as e:
+            print(e)
         userInfo.gender=data.get('gender')
         userInfo.profession=data.get('profession')
         userInfo.dob=data.get('dob')
@@ -164,7 +176,7 @@ def display(request, username):
                 messages.info(request, "I will get back to you as soon as possible")
             except Exception:
                 messages.error(request, "Could not contact. Try Again Later")
-        return render(request, 'view3.html', context)
+        return render(request, template, context)
     except Exception as e:
         print(e)
         return render(request, 'error.html')

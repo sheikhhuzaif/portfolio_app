@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
-
+from django.conf import settings
+from django.conf.urls.static import static
 from portfolio import views
 from django.contrib.auth import views as auth_views
 app_name='portfolio'
@@ -29,3 +30,6 @@ urlpatterns = [
     path('password/',views.password_change,name='password'),
     path('contact/',views.contact,name='contact')
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

@@ -40,7 +40,7 @@
       <div class="col-md-8 mx-auto">
 
 
-        <form id="regForm" action="" method="POST" class="needs-validation" novalidate>
+        <form id="regForm" action="" method="POST" class="needs-validation" enctype="multipart/form-data" novalidate>
           {% csrf_token %}
 
           <div class="tab-content">
@@ -106,7 +106,7 @@
                   </div>
                 </div>
                 <div class="form-floating mb-3 col-md-6">
-                  <input name="dob" type="date" id="dob" class="form-control" value="{{userInfo.dob}}" required>
+                  <input name="dob" type="date" id="dob" class="form-control" value="{{userInfo.dob |date:'Y-m-d'}}" required>
                   <label for="dob" style="color: black;">DOB</label>
                   <div class="invalid-feedback">
                     Please fill out this field
@@ -137,19 +137,15 @@
 
               <div class="mb-3">
                 <label for="picture" class="form-label">Upload Your Picture</label>
-                <input class="form-control" type="file" id="picture" name="picture">
+                <input class="form-control" type="file" id="picture" name="picture" accept=".jpg,.jpeg,.png" aria-describedby="imageHelp">
+                <div id="imageHelp" class="form-text" style="color: rgb(56, 56, 56);">"{% if userInfo.picture %}A Picture already exists, uploading again will overide it{% endif %}"</div>
 
               </div>
-              <div class="form-floating mb-3">
-                <input type="number" name="template" class="form-control form-control-sm" id="template" value="{% if userInfo %}{{userInfo.view}}{% endif %}"
-                  placeholder="Template" required>
-                <label style="color: #000;" for="Lname">Chose your template</label>
-                <div class="valid-feedback">
-                  This is fine
-                </div>
-                <div class="invalid-feedback">
-                  Please fill out this field
-                </div>
+              <div class="mb-3">
+                <label for="resume" class="form-label">Upload Your Resume</label>
+                <input class="form-control" type="file" id="resume" name="resume" accept=".pdf" aria-describedby="resumeHelp">
+                <div id="resumeHelp" class="form-text" style="color: rgb(56, 56, 56);">"{% if userInfo.resume %}A Resume already exists, uploading again will overide it{% endif %}"</div>
+
               </div>
             </div>
             
