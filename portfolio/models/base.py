@@ -14,7 +14,7 @@ class UserInfo(models.Model):
     address = models.TextField(blank=True, null=True)
     view=models.IntegerField(blank=False,null=False, default=0)
     profession=models.CharField(max_length=40)
-    dob=models.DateField()
+    dob=models.DateField(null=True, blank=True)
 
     @property
     def age(self):
@@ -66,4 +66,4 @@ class Social(models.Model):
         return str(self.stype).lower()
 
     def __str__(self):
-        return self.type + self.username
+        return self.stype + self.username

@@ -26,15 +26,19 @@ def register(request):
             password = request.POST.get('password1')
             if (User.objects.filter(username=username).first() or User.objects.filter(email=email).first())is None:
                 user = User(username=username, email=email)
+                if len(password)<8:
+                    messages.error(request, "minimum password length should be 8")
+                    return redirect('register')
                 user.set_password(raw_password=password)
                 user.save()
-                # send_joining_mail.delay(email, username)
+                send_joining_mail.delay(email, username)
                 messages.success(request, "Account successfully created for " + username)
                 user = authenticate(request, username=username, password=password)
                 login(request, user)
                 return redirect('home')
             else:
                 messages.error(request, "Account already exists")
+                return redirect('register')
         context = {}
         return render(request, 'signup.html', context)
 
@@ -248,7 +252,7 @@ def contact(request):
     if request.method=='POST':
         name=request.POST.get('name')
         email=request.POST.get('email')
-        message=request.POST.get('message')
+        message=str(request.POST.get('subject'))+" "+str(request.POST.get('message'))
         subject="Message from "+name+"("+email+")"
         
         if send_email.delay(subject,message,['sheikhhuzaif007@gmail.com']):

@@ -28,9 +28,15 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'additionalcss/contact.css' %}" rel="stylesheet">
   </head>
-  <body class="text-center" style="background-image: linear-gradient(to bottom right, rgb(3, 0, 190), rgb(189, 7, 180));">
+  <body class="text-center" style= "background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+    background-size: cover;">
     <div class="container-md-12">
+      <br><br><br><br><br>
         <h1>Sorry we couldn't get your message. Try again later</h1>
+        <br><br>
+        <h1> <a href="{% url 'about' %}" style="color: black;">Head Back Home</a></h1>
     </div>
 
 

@@ -138,13 +138,13 @@
               <div class="mb-3">
                 <label for="picture" class="form-label">Upload Your Picture</label>
                 <input class="form-control" type="file" id="picture" name="picture" accept=".jpg,.jpeg,.png" aria-describedby="imageHelp">
-                <div id="imageHelp" class="form-text" style="color: rgb(56, 56, 56);">"{% if userInfo.picture %}A Picture already exists, uploading again will overide it{% endif %}"</div>
+                <div id="imageHelp" class="form-text" style="color: rgb(56, 56, 56);">{% if userInfo.picture %}A Picture already exists, uploading again will overide it{% endif %}</div>
 
               </div>
               <div class="mb-3">
                 <label for="resume" class="form-label">Upload Your Resume</label>
                 <input class="form-control" type="file" id="resume" name="resume" accept=".pdf" aria-describedby="resumeHelp">
-                <div id="resumeHelp" class="form-text" style="color: rgb(56, 56, 56);">"{% if userInfo.resume %}A Resume already exists, uploading again will overide it{% endif %}"</div>
+                <div id="resumeHelp" class="form-text" style="color: rgb(56, 56, 56);">{% if userInfo.resume %}A Resume already exists, uploading again will overide it{% endif %}</div>
 
               </div>
             </div>
