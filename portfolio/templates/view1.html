@@ -8,7 +8,7 @@
     <title>{{user.get_full_name}}</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
-
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/icons/icon.png' %}"/>
     
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -234,26 +234,26 @@
                 </div>
             </div>
 
-            <form action="" method="POST" class="php-email-form mt-4">
+            <form action="" method="POST" class="mt-4" style="background-color: black;">
                 {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required style="background-color: black; border-color: #18d26e;">
                     </div>
                     <div class="col-md-6 form-group mt-3 mt-md-0">
                         <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                            required>
+                            required style="background-color: black; border-color: #18d26e;">
                     </div>
                 </div>
                 <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required style="background-color: black; border-color: #18d26e;">
                 </div>
                 <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required style="background-color: black; border-color: #18d26e;"></textarea>
                 </div>
                 <div class="my-3">
                 </div>
-                <div class="text-center"><button class="btn btn-primary" type="submit" onclick="alertMessage()">Send Message</button></div>
+                <div class="text-center"><button class="btn " style="background-color: #18d26e;;" type="submit">Send Message</button></div>
             </form>
 
         </div>
@@ -273,12 +273,12 @@
     <!-- Template Main JS File -->
     <script src="{% static 'additionaljs/view1.js' %}"></script>
     <script>
-        const alertMessage=function(){
+
           '{% for message in messages %}'
           var message='{{message}}'
           '{% endfor %}'
           alert(message)
-        }
+
       </script>
 
 </body>

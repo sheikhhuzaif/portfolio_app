@@ -8,7 +8,7 @@
   <title>{{user.get_full_name}}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/icons/icon.png' %}"/>
 
 
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -247,7 +247,7 @@
               </div>
               <div class="my-3">
               </div>
-              <div class="text-center"><button class="btn btn-primary" type="submit" onclick="alertMessage()">Send Message</button></div>
+              <div class="text-center"><button class="btn btn-primary" type="submit">Send Message</button></div>
             </form>
 
           </div>
@@ -295,12 +295,12 @@
   <!-- Template Main JS File -->
   <script src="{% static 'additionaljs/view2.js' %}"></script>
   <script>
-    const alertMessage=function(){
+
       '{% for message in messages %}'
       var message='{{message}}'
       '{% endfor %}'
       alert(message)
-    }
+
   </script>
 
 </body>
