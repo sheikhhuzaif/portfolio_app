@@ -243,10 +243,13 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, context)
                     try:
-                        send_email.delay(subject, email, [user.email], fail_silently=False)
+                        send_email.delay(subject, email, [user.email])
                     except BadHeaderError:
+                        
                         return HttpResponse('Invalid header found.')
                     return redirect("/password_reset/done/")
+            else:
+                messages.info(request, "Account not registered with us")
     password_reset_form = PasswordResetForm()
     return render(request, "password_reset.html", {"password_reset_form": password_reset_form})
 
