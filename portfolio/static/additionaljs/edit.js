@@ -121,6 +121,7 @@ function addRowSocial() {
                           <option value="Facebook">
                           <option value="Twitter">
                           <option value="Instagram">
+                          <option value="LinkedIn">
                           <option value="GitHub">
                         </datalist>
                         <div class="invalid-feedback">
