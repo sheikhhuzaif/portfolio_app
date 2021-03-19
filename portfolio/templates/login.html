@@ -23,7 +23,7 @@
 						Sign In With
 					</span>
 
-					<a href="{% provider_login_url 'google' %}" class="btn-google m-b-20" style="margin-bottom: 20px; margin-top: 20px;">
+					<a href="{% provider_login_url 'google' %}" class="btn-google m-b-20" style="margin-bottom: 20px; margin-top: 20px; text-decoration: none;">
 						<img src="{% static 'images/icons/icon-google.png' %}" alt="GOOGLE">
 						Google
 					</a>
@@ -43,13 +43,14 @@
 							Password
 						</span>
 
-						<a href="{% url 'password_reset' %}" class="txt2 bo1 m-l-5">
+						<a href="{% url 'password_reset' %}" class="txt2 m-l-5">
 							Forgot?
 						</a>
 					</div>
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<input class="input100" type="password" name="password" >
 						<span class="focus-input100"></span>
+					
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
@@ -63,7 +64,7 @@
 							Not a member?
 						</span>
 
-						<a href="{% url 'register' %}" class="txt2 bo1">
+						<a href="{% url 'register' %}" class="txt2 ">
 							Sign up now
 						</a>
 					</div>

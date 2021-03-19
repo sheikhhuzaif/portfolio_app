@@ -10,13 +10,34 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/png" href="{% static 'images/icons/icon.png' %}"/>
   <script src="{% static 'additionaljs/edit.js' %}"></script>
+  <link href="{% static 'additionalcss/edit.css' %}" rel="stylesheet">
+
 
 </head>
 
-<body class="text-white" style="background-image: url({% static 'images/bg-01.png' %});, -webkit-background-size: cover;
+<body class="text-white" style="background-image: url({% static 'images/bg-01.png' %}); -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
     background-size: cover;">
+    <div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="text-white pb-5">
+        <div>
+            <h3 class="float-md-start mb-0 text-center">PRTFOLIOs</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end ">
+                <a class=" nav-link active " aria-current="page" href="{% url 'edit' %} ">Edit</a>
+                <a class="nav-link " href="{% url 'home'%} ">Home</a>
+                <a class=" nav-link " href="{% url 'about' %} ">About</a>
+                <a class="nav-link dropdown-toggle dropdown text-uppercase" href="#" id="navbarDropdown"
+                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{request.user}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'password'%}">Change password</a>
+                    <a class="dropdown-item" href="{% url 'logout'%}">Logout</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <h1 class="text-center text-uppercase mb-5 pt-3">Fill in your details</h1>
     <div class="row g-2">
@@ -135,13 +156,13 @@
               </div>
 
               <div class="mb-3">
-                <label for="picture" class="form-label">Upload Your Picture</label>
+                <label for="picture" class="form-label" style="color: rgb(110, 110, 110);">Upload Your Picture</label>
                 <input class="form-control" type="file" id="picture" name="picture" accept=".jpg,.jpeg,.png" aria-describedby="imageHelp">
                 <div id="imageHelp" class="form-text" style="color: rgb(167, 167, 167);">{% if userInfo.picture %}A Picture already exists, uploading again will overide it{% endif %}</div>
 
               </div>
               <div class="mb-3">
-                <label for="resume" class="form-label">Upload Your Resume</label>
+                <label for="resume" class="form-label" style="color: rgb(110, 110, 110);">Upload Your Resume</label>
                 <input class="form-control" type="file" id="resume" name="resume" accept=".pdf" aria-describedby="resumeHelp">
                 <div id="resumeHelp" class="form-text" style="color: rgb(167, 167, 167);">{% if userInfo.resume %}A Resume already exists, uploading again will overide it{% endif %}</div>
 
@@ -287,6 +308,7 @@
         </script>
       </div>
     </div>
+  </div>
 </body>
 
 </html>
