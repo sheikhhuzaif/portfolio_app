@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include,re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from portfolio import views
 from django.contrib.auth import views as auth_views
+from django.views.static import serve 
 app_name='portfolio'
 
 urlpatterns = [
@@ -27,6 +28,8 @@ urlpatterns = [
     path('view/<str:username>/', views.display, name='view'),
     path("password_reset", views.password_reset_request, name="password_reset"),
     path('settings/',views.settings,name='settings'),
+    re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
+    re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     path('password/',views.password_change,name='password'),
     path('contact/',views.contact,name='contact')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

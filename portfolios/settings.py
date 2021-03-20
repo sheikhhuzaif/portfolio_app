@@ -173,10 +173,10 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media_root/'
 STATIC_URL = '/static_root/'
 STATIC_ROOT=os.path.join(BASE_DIR, 'static_root/')
-MEDIA_ROOT=os.path.join(BASE_DIR, 'portfolio/media/')
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media_root/')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
