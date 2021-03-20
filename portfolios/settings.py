@@ -174,7 +174,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
+STATIC_URL = '/static_root/'
 STATIC_ROOT=os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT=os.path.join(BASE_DIR, 'portfolio/media/')
 
