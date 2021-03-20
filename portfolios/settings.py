@@ -68,9 +68,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ROOT_URLCONF = 'portfolios.urls'
 
-STATICFILES_DIRS = (
-    ('assets', os.path.join(BASE_DIR, 'portfolio/static/'))
-)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'portfolio/static/')]
+
 
 TEMPLATES = [
     {
