@@ -283,9 +283,10 @@ def contact(request):
             str(request.POST.get('message'))
         subject = "Message from "+name+"("+email+")"
 
-        if send_email.delay(subject, message, ['sheikhhuzaif007@gmail.com']):
+        try:
+            send_email.delay(subject, message, ['sheikhhuzaif007@gmail.com'])
             return render(request, 'contactsuccess.html')
-        else:
+        except:
             return render(request, 'contactfail.html')
 
     return render(request, 'contact.html')
