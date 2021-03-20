@@ -39,7 +39,7 @@ def register(request):
                     return redirect('register')
                 user.set_password(raw_password=password)
                 user.save()
-                send_joining_mail.delay(email, username)
+                # send_joining_mail.delay(email, username)
                 messages.success(
                     request, "Account successfully created for " + username)
                 user = authenticate(

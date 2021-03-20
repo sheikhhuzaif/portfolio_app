@@ -24,7 +24,7 @@ SECRET_KEY = '+cf@l+*91j92)uh8%8v*736y7^kw6#z_)6m$ow-%38n)a1g!+0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['143.110.242.211','www.prtfolios.com']
+ALLOWED_HOSTS = ['143.110.242.211','www.prtfolios.com','localhost']
 
 # Application definition
 
