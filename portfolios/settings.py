@@ -93,8 +93,12 @@ WSGI_APPLICATION = 'portfolios.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'portfolios',
+        'USER': 'dbadmin',
+        'PASSWORD': 'dbadmin123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -167,11 +171,13 @@ SOCIALACCOUNT_PROVIDERS = {
 
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'portfolio/media/')
 
 MEDIA_URL = '/media/'
-
 STATIC_URL = '/static/'
+STARIC_ROOT=os.path.join(BASE_DIR, 'portfolio/statid')
+MEDIA_ROOT=os.path.join(BASE_DIR, 'portfolio/media/')
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
