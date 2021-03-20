@@ -276,12 +276,12 @@ def password_reset_request(request):
 
 
 def contact(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        message = str(request.POST.get('subject'))+" " + \
-            str(request.POST.get('message'))
-        subject = "Message from "+name+"("+email+")"
+    # if request.method == 'POST':
+    #     name = request.POST.get('name')
+    #     email = request.POST.get('email')
+    #     message = str(request.POST.get('subject'))+" " + \
+    #         str(request.POST.get('message'))
+    #     subject = "Message from "+name+"("+email+")"
 
         # try:
         #     send_email.delay(subject, message, ['sheikhhuzaif007@gmail.com'])
