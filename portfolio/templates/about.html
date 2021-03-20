@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About PORTFOLIOs</title>
 
-    {% load static %}
+    {% load staticfiles %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}images/icons/icon.png"/>
-    <link href="{{STATIC_URL}}additionalcss/about.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/icons/icon.png' %}"/>
+    <link href="{% static 'additionalcss/about.css' %}" rel="stylesheet">
 
     <style>
         body {
@@ -33,7 +33,7 @@
 
 </head>
 
-<body class="d-flex h-100 text-center text-white" style="background-image: url({{STATIC_URL}}images/bg-01.png); -webkit-background-size: cover;
+<body class="d-flex h-100 text-center text-white" style="background-image: url({% static 'images/bg-01.png' %}); -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;">
@@ -53,7 +53,7 @@ background-size: cover;">
 
         <div class="bg-image">
             <div class=" mb-3">
-                <img src="{{STATIC_URL}}images/logo.png" width="260" height="200 ">
+                <img src="{% static 'images/logo.png' %} " width="260" height="200 ">
             </div>
 
             <div class="welcome">
@@ -73,7 +73,7 @@ background-size: cover;">
                 <div class="carousel-item" data-bs-interval="5000">
                     <div class="text-center ">
                         <div class=" ">
-                            <img src="{{STATIC_URL}}images/icons/templates.svg" alt="Feature 01 " width="60 " height="60">
+                            <img src="{% static 'images/icons/templates.svg' %} " alt="Feature 01 " width="60 " height="60">
                         </div>
                         <div class=" ">
                             <h4 class="mt-24 ">Choose from our multiple templates.</h4>
@@ -85,7 +85,7 @@ background-size: cover;">
                     <div class=" text-center ">
                         <div class=" ">
                             <div class=" ">
-                                <img src="{{STATIC}}images/icons/edit.svg" alt="Feature 02 " width="60 " height="60 ">
+                                <img src="{% static 'images/icons/edit.svg' %} " alt="Feature 02 " width="60 " height="60 ">
                             </div>
                             <h4 class="mt-24 ">Fill in your details</h4>
                             
@@ -97,7 +97,7 @@ background-size: cover;">
                     <div class="text-center ">
                         <div class=" ">
                             <div class=" ">
-                                <img src="{{STATIC_URL}}images/icons/share.svg" alt="Feature 03 " width="60 " height="60 ">
+                                <img src="{% static 'images/icons/share.svg' %} " alt="Feature 03 " width="60 " height="60 ">
                             </div>
                             <h4 class="mt-24 ">Download or share your portfolio with a single link</h4>
                         </div>
