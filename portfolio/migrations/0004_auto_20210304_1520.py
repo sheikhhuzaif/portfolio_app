@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='education',
             name='end_time',
-            field=models.IntegerField(),
+            field=models.CharField(max_length=4),
         ),
         migrations.AlterField(
             model_name='userinfo',
