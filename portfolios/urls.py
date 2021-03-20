@@ -29,5 +29,5 @@ urlpatterns = [
     path('settings/',views.settings,name='settings'),
     path('password/',views.password_change,name='password'),
     path('contact/',views.contact,name='contact')
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
