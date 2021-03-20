@@ -289,4 +289,4 @@ def contact(request):
         # except:
         #     return render(request, 'contactfail.html')
 
-    return render(request, 'contactfail.html')
+    return render(request, 'error.html')
